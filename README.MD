@@ -4,6 +4,10 @@
 
 	`cd myapp`
 
+**安装**
+
+	`npm i -d`
+
 **启动demo**
 
 	`npm start`
