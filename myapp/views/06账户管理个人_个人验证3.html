@@ -1,0 +1,56 @@
+{% extends "_layout/wrapper.html" %}
+
+{# content内容 #}
+{% block content %}
+
+	{# 菜单导航 #}
+	{{ navigator.current('nav5') }}
+
+	{# 面包屑导航 #}
+	<ol class="breadcrumb fn-mb-10">
+		<li>
+			<a href="06账户管理个人.html">账户管理 <i class="icon-chevron-thin-right"></i></a>
+		</li>
+		<li>
+			个人验证
+		</li>
+	</ol>
+
+	{# 步骤 #}
+	{{ Step.render('pass3', '设置支付密码', '绑定银行卡', '验证结果', '') }}
+
+	{# 结果提示 #}
+
+	<!-- 处理中... -->
+	{{ Notice.wait() }}
+
+	<!-- 验证中... -->
+	<div class="notice-wrap info">
+		<div class="notice-box">
+			<span class="notice-img"></span>
+			<h3>
+				验证申请已提交
+			</h3>
+			<p>
+				<strong>账户正在验证中，预计24小时内完成验证，请耐心等待。</strong>
+				<br>
+				验证成功后验证金额可用于交易或提现。
+				<br>
+				可在 <a href="06账户管理个人.html" class="link-standard">账户管理</a> 中查看验证进度。
+			</p>
+		</div>
+	</div>
+	<br/>
+
+	<!-- 成功 -->
+	<div class="notice-wrap success">
+		<div class="notice-box">
+			<span class="notice-img"></span>
+			<h3>
+				验证成功！
+			</h3>
+			<a href="06公共页面-收银台-收银台（充值）.html" class="link-standard">马上充值</a>
+			<a href="01账户总览.html" class="link-standard link-border">返回账户总览</a>
+		</div>
+	</div>
+{% endblock %}

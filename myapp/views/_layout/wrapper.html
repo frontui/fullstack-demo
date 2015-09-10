@@ -1,0 +1,43 @@
+{% extends "_layout/layout.html" %}
+
+{# 菜单导航 #}
+{% import "_components/navigator.html" as navigator %}
+
+{# 提示 #}
+{% import "_components/alert.html" as Alert %}
+
+{# 步骤 #}
+{% import "_components/step.html" as Step %}
+
+{# 表单 #}
+{% import "_components/form.html" as Form %}
+
+{# 过滤 #}
+{% import "_components/filter.html" as Filter %}
+
+{# 下载 #}
+{% import "_components/download.html" as download %}
+
+{# 分页 #}
+{% import "_components/pagination.html" as Pager %}
+
+{# 提示 #}
+{% import "_components/notice.html" as Notice %}
+
+{# 我的银行 #}
+{% import "_components/myBanks.html" as MyBanks %}
+
+{# 弹框 #}
+{% import "_components/modal.html" as Modal %}
+
+{# 双色球 #}
+{% import "_components/amountRemind.html" as Amount %}
+
+
+{# 通用布局 #}
+{% block body %}
+    <div class="wrapper">
+        {% block content %}
+        {% endblock %}
+    </div>
+{% endblock %}

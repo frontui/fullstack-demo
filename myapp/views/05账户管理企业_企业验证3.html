@@ -1,0 +1,74 @@
+{% extends "_layout/wrapper.html" %}
+
+{# content内容 #}
+{% block content %}
+
+	{# 菜单导航 #}
+	{{ navigator.current('nav5') }}
+
+	{# 面包屑导航 #}
+	<ol class="breadcrumb fn-mb-10">
+		<li>
+			<a href="05账户管理企业-未验证.html">账户管理 <i class="icon-chevron-thin-right"></i></a>
+		</li>
+		<li>
+			企业验证
+		</li>
+	</ol>
+
+	{# 步骤 #}
+	{{ Step.render('pass3', '设置新密码', '企业用户安全验证', '验证结果', '') }}
+
+	{# 结果提示 #}
+
+	<!-- 处理中... -->
+	{{ Notice.wait() }}
+
+	<!-- 验证中... -->
+	<div class="notice-wrap info">
+		<div class="notice-box">
+			<span class="notice-img"></span>
+			<h3>
+				验证申请已提交
+			</h3>
+			<p>
+				<strong>账户正在验证中，预计24小时内完成验证，请耐心等待。</strong>
+				<br>
+				验证成功后验证金额可用于交易或提现。
+				<br>
+				可在 <a href="05账户管理企业.html" class="link-standard">账户管理</a> 中查看验证进度。
+			</p>
+		</div>
+	</div>
+	<br/>
+
+	<!-- 成功 -->
+	<div class="notice-wrap success">
+		<div class="notice-box">
+			<span class="notice-img"></span>
+			<h3>
+				验证成功！
+			</h3>
+			<a href="06公共页面-收银台-收银台（充值）.html" class="link-standard">马上充值</a>
+			<a href="01账户总览.html" class="link-standard link-border">返回账户总览</a>
+		</div>
+	</div>
+	<br/>
+
+	<!-- 失败 -->
+	<div class="notice-wrap error">
+		<div class="notice-box">
+			<span class="notice-img"></span>
+			<h3>
+				验证失败！
+			</h3>
+			<p>
+				<strong class="error-FontColor1">原因：企业对公账户名与平台企业名称不符</strong>
+				<br/>
+				验证金额已充值到您的账户，验证成功后可用于交易或提现。
+			</p>
+			<a href="05账户管理企业_企业验证1.html" class="link-standard">重新验证</a>
+			<a href="01账户总览.html" class="link-standard link-border">返回账户总览</a>
+		</div>
+	</div>
+{% endblock %}

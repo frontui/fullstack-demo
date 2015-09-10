@@ -1,0 +1,123 @@
+{% extends "_layout/wrapper.html" %}
+{# content内容 #}
+{% block content %}
+
+	{# 菜单导航 #}
+	{{ navigator.current('nav5') }}
+
+	{# 账户资料 #}
+	<div class="tables-title heading-FontColor title-border">
+		账户资料
+	</div>
+	<div class="data-count-wrap fn-mb-10">
+		<ul class="info-list">
+			<li>
+				<dl>
+					<dt class="longest default-FontColor">广东盛业科技服务有限公司</dt>
+					<dd>
+						<i class="font-normal viceText-FontColor">（ID：JZT001）</i>
+						<b class="font-normal link-FontColor fn-ml-15">未验证</b>
+						<b class="font-normal success-FontColor1 fn-ml-15">已验证</b>
+						<b class="font-normal info-FontColor fn-ml-15">验证中</b>
+					</dd>
+				</dl>
+			</li>
+		</ul>
+	</div>
+
+	{# 企业银行账户管理 #}
+	<div class="tables-title heading-FontColor title-border">
+		企业银行账户管理
+	</div>
+	<div class="data-count-wrap fn-mb-10">
+		{{ MyBanks.render(1, 0) }}
+	</div>
+
+	{# 安全管理 #}
+	<div class="tables-title heading-FontColor title-border">
+		安全管理
+	</div>
+    <div class="data-count-wrap">
+        <div class="password-status-wrap fn-pl-10 fn-pr-10">
+            <table class="password-status-table">
+                <colgroup>
+                    <col style="width: 104px;">
+                    <col style="width: 92px;">
+                    <col>
+                    <col style="width: 80px;">
+                </colgroup>
+                <tbody>
+                <tr>
+                    <td>
+                        <strong class="default-FontColor">支付密码</strong>
+                    </td>
+                    <td>
+                                <span class="password-status-label done">
+                                    <b></b>
+                                    已设置
+                                </span>
+                    </td>
+                    <td class="viceText-FontColor">
+                        用于付款或修改账户信息时，保护账户资金安全
+                    </td>
+                    <td class="text-align-right">
+                        <a href="05账户管理企业_密码重置1.html" class="link-standard">重置</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <strong class="default-FontColor">支付密码</strong>
+                    </td>
+                    <td>
+                                <span class="password-status-label notdone">
+                                    <b></b>
+                                    未设置
+                                </span>
+                    </td>
+                    <td class="viceText-FontColor">
+                        用于付款或修改账户信息时，保护账户资金安全
+                    </td>
+                    <td class="text-align-right">
+                        <a href="05账户管理企业_密码重置1.html" class="link-standard">设置</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="default-FontColor">
+                        <strong>支付手机号码</strong>
+                    </td>
+                    <td>
+                                <span class="password-status-label done">
+                                    <b></b>
+                                    已设置
+                                </span>
+                    </td>
+                    <td class="viceText-FontColor">
+                        您绑定的手机：133****1234
+                    </td>
+                    <td class="text-align-right">
+                        <a href="05账户管理-重置手机号码（网银）-修改手机号码.html" class="link-standard">重置</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="default-FontColor">
+                        <strong>支付手机号码</strong>
+                    </td>
+                    <td>
+                                <span class="password-status-label notdone">
+                                    <b></b>
+                                    未设置
+                                </span>
+                    </td>
+                    <td class="viceText-FontColor">
+                        您未绑定手机
+                    </td>
+                    <td class="text-align-right">
+                        <a href="05账户管理-重置手机号码（网银）-修改手机号码.html" class="link-standard">设置</a>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+{% endblock %}

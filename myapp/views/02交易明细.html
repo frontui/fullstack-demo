@@ -1,0 +1,160 @@
+{% extends "_layout/wrapper.html" %}
+{# content内容 #}
+{% block content %}
+
+	{# 菜单导航 #}
+	{{ navigator.current('nav2') }}
+
+	<!-- 搜索过滤 -->
+	{{ Filter.render('订单号、对方账号', 1) }}
+
+	<!-- 数据统计 -->
+	<div class="data-count-wrap count-wrap-btline fn-mb-20">
+		<div>
+			<ul class="date-count-ul">
+				<li class="count-title">
+					<h4>当前数据统计</h4>
+					<span class="arrows-shadow"></span>
+					<span class="arrows"></span>
+				</li>
+				<li>
+					<h5 class="default-FontColor">
+						交易额（元）
+					</h5>
+					<h2>
+						103,000.00
+					</h2>
+				</li>
+				<li class="last-li">
+					<h5 class="default-FontColor">
+						交易笔数
+					</h5>
+					<h2>
+						3,000.00
+					</h2>
+				</li>
+			</ul>
+		</div>
+	</div>
+
+<table class="table inverse">
+    <colgroup>
+        <col/>
+        <col/>
+        <col/>
+        <col/>
+        <col/>
+        <col style="width:80px"/>
+    </colgroup>
+    <thead>
+    <tr>
+        <th>创建时间</th>
+        <th>订单号</th>
+        <th>对方账号</th>
+        <th>金额（元）</th>
+        <th>状态</th>
+        <th class="text-align-left th-ctrls">操作</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>2015.05.20  16:56</td>
+        <td>
+            <p class="text-nowrap">TJZT20150520000002</p>
+        </td>
+        <td>海王星辰大药房</td>
+        <td class="warning-FontColor">-1,000.00</td>
+        <td>成功</td>
+        <td class="text-align-left">
+            <a class="link-standard" href="02交易明细_付款详情（直付）.html">
+                详情
+            </a>
+        </td>
+    </tr>
+    <tr>
+        <td>2015.05.20  16:56</td>
+        <td>
+            <p class="text-nowrap">TJZT20150520000003</p>
+        </td>
+        <td>海王星辰大药房</td>
+        <td class="warning-FontColor">-1,000.00</td>
+        <td>成功</td>
+        <td class="text-align-left">
+            <a class="link-standard" href="02交易明细_付款详情（担保-含清算）.html">
+                详情
+            </a>
+        </td>
+    </tr>
+    <tr>
+        <td>2015.05.20  16:56</td>
+        <td>
+            <p class="text-nowrap">TJZT20150520000001</p>
+        </td>
+        <td>海王星辰大药房</td>
+        <td class="warning-FontColor">-1,000.00</td>
+        <td>成功</td>
+        <td class="text-align-left">
+            <a class="link-standard" href="02交易明细_付款详情（担保-不含清算）.html">
+                详情
+            </a>
+        </td>
+    </tr>
+    <tr>
+        <td>2015.05.20  16:56</td>
+        <td>
+            <p class="text-nowrap">TJZT20150520000004</p>
+        </td>
+        <td>海王星辰大药房</td>
+        <td class="success-FontColor2">+2,000.00</td>
+        <td>成功</td>
+        <td class="text-align-left">
+            <a class="link-standard" href="02交易明细_收款详情（直付）.html">
+                详情
+            </a>
+        </td>
+    </tr>
+    <tr>
+        <td>2015.05.20  16:56</td>
+        <td>
+            <p class="text-nowrap">TJZT20150520000004</p>
+        </td>
+        <td>海王星辰大药房</td>
+        <td class="success-FontColor2">+2,000.00</td>
+        <td>成功</td>
+        <td class="text-align-left">
+            <a class="link-standard" href="02交易明细_收款详情（担保）.html">
+                详情
+            </a>
+        </td>
+    </tr>
+    <tr>
+        <td>2015.05.20  16:56</td>
+        <td>
+            <p class="text-nowrap">TJZT20150520000005</p>
+        </td>
+        <td>海王星辰大药房</td>
+        <td class="success-FontColor2">+2,000.00</td>
+        <td>处理中</td>
+        <td class="text-align-left">
+            <a href="###" class="link-standard">详情</a>
+        </td>
+    </tr>
+    <tr>
+        <td>2015.05.20  16:56</td>
+        <td>
+            <p class="text-nowrap">TJZT20150520000006</p>
+        </td>
+        <td>海王星辰大药房</td>
+        <td class="success-FontColor2">+1,006.00</td>
+        <td>失败</td>
+        <td class="text-align-left">
+            <a href="###" class="link-standard">详情</a>
+        </td>
+    </tr>
+    </tbody>
+</table>
+	{# 分页 #}
+	{{ Pager.render() }}
+{% endblock %}
+
+

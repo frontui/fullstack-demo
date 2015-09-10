@@ -1,0 +1,12 @@
+{% macro render(dir='text-align-center') %}
+<!-- start 分页结构 -->
+<div class="pagination-wrap text-align-center fn-mt-20">
+    <p class="pull-left fs-12 lh-26">
+        共0页，0条记录，每页显示20条。
+    </p>
+    <!-- 不同的分页最好提供绑定id，用id去绑定$(id).pagination(config); -->
+    <ul class="pagination" id="j-page-xxx">
+    </ul>
+</div>
+<!-- end 分页结构 -->
+{% endmacro %}

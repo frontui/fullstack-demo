@@ -1,0 +1,58 @@
+{% extends "_layout/wrapper.html" %}
+
+{# content内容 #}
+{% block content %}
+
+	{# 菜单导航 #}
+	{{ navigator.current('nav5') }}
+
+	{# 面包屑导航 #}
+	<ol class="breadcrumb fn-mb-10">
+		<li>
+			<a href="06账户管理个人.html">账户管理 <i class="icon-chevron-thin-right"></i></a>
+		</li>
+		<li>
+			个人验证
+		</li>
+	</ol>
+
+	{# 步骤 #}
+	{{ Step.render('pass1', '设置支付密码', '绑定银行卡', '验证结果', '') }}
+
+	{# 设置支付密码 #}
+	<div class="form-frame">
+		{# Alert 提示 #}
+		{{ Alert.loading('用于付款或修改账号信息，请不要与登录密码一致。') }}
+
+		<div class="form-layer1">
+			<div class="form-layer2">
+				<form action="06账户管理个人_个人验证2.html" autocomplete="off">
+					{# 密码 #}
+					<div class="form-group">
+						<label for="password" class="form-control-label">
+							<span>设置支付密码</span>
+							<em>：</em>
+						</label>
+						<div class="form-control-wrap">
+							{{ Form.password() }}
+						</div>
+					</div>
+					{# 确认密码 #}
+					<div class="form-group">
+						<label for="repassword" class="form-control-label">
+							<span>确认支付密码</span>
+							<em>：</em>
+						</label>
+						<div class="form-control-wrap">
+							{{ Form.password('repassword', 'repassword') }}
+						</div>
+					</div>
+					{# 按钮 #}
+					<div class="form-group">
+						{{ Form.defaultBtn() }}
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+{% endblock %}

@@ -1,0 +1,738 @@
+{% extends "_layout/wrapper.html" %}
+
+{# content #}
+{% block content %}
+
+<div class="transaction-notice-bg">
+
+    <!-- 收款（多条流水） -->
+    <div class="transaction-notice-wrap">
+        <div class="transaction-notice-box">
+            <h2>电子交易告知书</h2>
+            <img class="bank" src="{{ static }}/images/bank-large/bank-cmb.png">
+            <div class="transaction-notice">
+                <table>
+                    <colgroup>
+                        <col width="9%">
+                        <col width="31%">
+                        <col width="24%">
+                        <col width="7%">
+                        <col  width="29%">
+                    </colgroup>
+                    <tbody>
+                    <tr>
+                        <td>
+                            商品名称：
+                        </td>
+                        <td>
+                            <div class="fn-pr-20">半亩花田薰衣草蜂蜜足蜡足膜 足部护
+                                理美足嫩白去角质脚膜去死皮老茧足</div>
+                            膜【买就送足霜】</td>
+                        <td>业务类型：收款
+                        </td>
+
+                        <td>订单号：
+                        </td>
+                        <td>ZY201507234220384589456175675865789</td>
+                    </tr>
+                    <tr>
+                        <td colspan="5">付款方名称：深圳致君制药有限公司
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="5">付款方客户号：QT3824923u932u42343256832
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="5">收款方名称：深圳致君制药有限公司
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="5">收款方客户号：QT3824923u932u42343256832
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="5">收款金额（大写）：人民币壹佰万元整
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="5">收款金额（小写）：CNY1,000,000.00
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+            <p>
+                收款明细
+            </p>
+            <div class="transaction-notice-detail">
+                <table>
+                    <colgroup>
+                        <col style="width: 23%"/>
+                        <col style="width: 23%"/>
+                        <col style="width: 23%"/>
+                        <col />
+                    </colgroup>
+                    <tbody>
+                    <tr>
+                        <th>
+                            创建时间
+                        </th>
+                        <th>
+                            流水号
+                        </th>
+                        <th>
+                            金额（元）
+                        </th>
+                        <th>
+                            备注
+                        </th>
+                    </tr>
+                    <tr>
+                        <td>
+                            2015-05-20&nbsp;&nbsp;14:30:25
+                        </td>
+                        <td>
+                            TJZT20150520000001
+                        </td>
+                        <td>
+                            500,000.00
+                        </td>
+
+                        <td>
+                            首款
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            2015-05-20&nbsp;&nbsp;14:30:25
+                        </td>
+                        <td>
+                            TJZT20150520000002
+                        </td>
+                        <td>
+                            500,000.00
+                        </td>
+
+                        <td>
+                            尾款
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="transaction-notice-bottom">
+                摘要：根据客户电子指令进行订单收款，订单编号-TB20151105
+                <img src="{{ static }}/images/seal.png">
+            </div>
+            <p class="print-time">
+                打印时间：2015-05-20&nbsp;&nbsp;14:10:01
+            </p>
+        </div>
+    </div>
+    <div class="text-align-center" style="padding-bottom: 100px;">
+        <button type="button" class="btn primary">打印凭证</button>
+    </div>
+
+    <!-- 收款（单条流水） -->
+    <div class="transaction-notice-wrap">
+        <div class="transaction-notice-box">
+            <h2>电子交易告知书</h2>
+            <img class="bank" src="{{ static }}/images/bank-large/bank-cmb.png">
+            <div class="transaction-notice">
+                <table>
+                    <colgroup>
+                        <col width="9%">
+                        <col width="31%">
+                        <col width="24%">
+                        <col width="7%">
+                        <col  width="29%">
+                    </colgroup>
+                    <tbody>
+                    <tr>
+                        <td>商品名称：
+                        </td>
+                        <td><div class="fn-pr-20">甘草</div></td>
+                        <td>业务类型：收款
+                        </td>
+                        <td>订单号：
+                        </td>
+                        <td>ZY201507234220384</td>
+                    </tr>
+                    <tr>
+                        <td colspan="5">付款方名称：深圳致君制药有限公司
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="5">付款方客户号：QT3824923u932u42343256832
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="5">收款方名称：深圳致君制药有限公司
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="5">收款方客户号：QT3824923u932u42343256832
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="5">收款金额（大写）：人民币壹佰万元整
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="5">收款金额（小写）：CNY1,000,000.00
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+            <p>
+                收款明细
+            </p>
+            <div class="transaction-notice-detail">
+                <table>
+                    <colgroup>
+                        <col style="width: 23%"/>
+                        <col style="width: 23%"/>
+                        <col style="width: 23%"/>
+                        <col />
+                    </colgroup>
+                    <tbody>
+                    <tr>
+                        <th>
+                            创建时间
+                        </th>
+                        <th>
+                            流水号
+                        </th>
+                        <th>
+                            金额（元）
+                        </th>
+                        <th>
+                            备注
+                        </th>
+                    </tr>
+                    <tr>
+                        <td>
+                            2015-05-20&nbsp;&nbsp;14:30:25
+                        </td>
+                        <td>
+                            TJZT20150520000001
+                        </td>
+                        <td>
+                            500,000.00
+                        </td>
+                        <td>
+                            首款
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="transaction-notice-bottom">
+                摘要：根据客户电子指令进行订单收款，订单编号-TB20151105
+                <img src="{{ static }}/images/seal.png">
+            </div>
+            <p class="print-time">
+                打印时间：2015-05-20&nbsp;&nbsp;14:10:01
+            </p>
+        </div>
+    </div>
+    <div class="text-align-center" style="padding-bottom: 100px;">
+        <button type="button" class="btn primary">打印凭证</button>
+    </div>
+
+    <!-- 付款（直付） -->
+    <div class="transaction-notice-wrap">
+        <div class="transaction-notice-box">
+            <h2>电子交易告知书</h2>
+            <img class="bank" src="{{ static }}/images/bank-large/bank-cmb.png">
+            <div class="transaction-notice">
+                <table>
+                    <colgroup>
+                        <col width="9%">
+                        <col width="31%">
+                        <col width="24%">
+                        <col width="7%">
+                        <col  width="29%">
+                    </colgroup>
+                    <tbody>
+                    <tr>
+                        <td>日期：
+                        </td>
+                        <td>2015年04月03日</td>
+                        <td>业务类型：付款
+                        </td>
+                        <td>订单号：
+                        </td>
+                        <td>ZY201507234220384</td>
+                    </tr>
+                    <tr>
+                        <td>流水号：
+                        </td>
+                        <td>ZY201507234220384</td>
+                        <td colspan="4">商品名称：甘草</td>
+
+                    </tr>
+                    <tr>
+                        <td colspan="5">付款方全称：海王星辰大药房
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="5">付款方客户号：QT3824923u932u42343256832
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="5">收款方全称：致君药业有限公司
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="5">收款方客户号：QT3824923u932u42343256832
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="5">金额（大写）：人民币壹佰万元整
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="5">金额（小写）：CNY1,000,000.00
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="transaction-notice-bottom">
+                摘要：根据客户电子指令进行订单付款,订单编号-TB20151105
+                <img src="{{ static }}/images/seal.png">
+            </div>
+            <p class="print-time">
+                打印时间：2015-05-20&nbsp;&nbsp;14:10:01
+            </p>
+        </div>
+    </div>
+    <div class="text-align-center" style="padding-bottom: 100px;">
+        <button type="button" class="btn primary">打印凭证</button>
+    </div>
+
+    <!-- 付款（含清算记录） -->
+    <div class="transaction-notice-wrap">
+        <div class="transaction-notice-box">
+            <h2>电子交易告知书</h2>
+            <img class="bank" src="{{ static }}/images/bank-large/bank-cmb.png">
+            <div class="transaction-notice">
+                <table>
+                    <colgroup>
+                        <col width="9%">
+                        <col width="31%">
+                        <col width="24%">
+                        <col width="7%">
+                        <col  width="29%">
+                    </colgroup>
+                    <tbody>
+                    <tr>
+                        <td>商品名称：
+                        </td>
+                        <td><div class="fn-pr-20">甘草</div></td>
+                        <td>业务类型：付款
+                        </td>
+                        <td>订单号：
+                        </td>
+                        <td>ZY201507234220384</td>
+                    </tr>
+                    <tr>
+                        <td colspan="5">付款方全称：海王星辰大药房
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="5">付款方客户号：QT3824923u932u42343256832
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="5">金额（大写）：人民币壹佰万元整
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="5">金额（小写）：CNY1,000,000.00
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+            <p>
+                付款明细
+            </p>
+            <div class="transaction-notice-detail">
+                <table>
+                    <colgroup>
+                        <col style="width: 30%"/>
+                        <col style="width: 30%"/>
+                        <col style="width: 30%"/>
+                        <col />
+                    </colgroup>
+                    <tbody>
+                    <tr>
+                        <th>
+                            创建时间
+                        </th>
+                        <th>
+                            流水号
+                        </th>
+                        <th>
+                            金额（元）
+                        </th>
+                        <th>
+                            备注
+                        </th>
+                    </tr>
+                    <tr>
+                        <td>
+                            2015-05-20&nbsp;&nbsp;14:30:25
+                        </td>
+                        <td>
+                            TJZT20150520000001
+                        </td>
+                        <td>
+                            500,000.00
+                        </td>
+                        <td>
+                            首款
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            2015-05-20&nbsp;&nbsp;14:30:25
+                        </td>
+                        <td>
+                            TJZT20150520000002
+                        </td>
+                        <td>
+                            500,000.00
+                        </td>
+                        <td>
+                            尾款
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+            <p>
+                清算明细
+            </p>
+            <div class="transaction-notice-detail">
+                <table>
+                    <colgroup>
+                        <col style="width: 23%"/>
+                        <col style="width: 23%"/>
+                        <col style="width: 23%"/>
+                        <col style="width: 23%"/>
+                        <col />
+                    </colgroup>
+                    <tbody>
+                    <tr>
+                        <th>
+                            创建时间
+                        </th>
+                        <th>
+                            流水号
+                        </th>
+                        <th>
+                            金额（元）
+                        </th>
+                        <th>
+                            收款方
+                        </th>
+                        <th>
+                            备注
+                        </th>
+                    </tr>
+                    <tr>
+                        <td>
+                            2015-05-20&nbsp;&nbsp;14:30:25
+                        </td>
+                        <td>
+                            TJZT20150520000001
+                        </td>
+                        <td>
+                            500,000.00
+                        </td>
+                        <td>
+                            深圳致君制药公司
+                        </td>
+                        <td>
+                            首款
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            2015-05-20&nbsp;&nbsp;14:30:25
+                        </td>
+                        <td>
+                            TJZT20150520000002
+                        </td>
+                        <td>
+                            500,000.00
+                        </td>
+                        <td>
+                            深圳致君制药公司
+                        </td>
+                        <td>
+                            尾款
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="transaction-notice-bottom">
+                摘要：根据客户电子指令进行订单付款，订单编号-TB20151105
+                <img src="{{ static }}/images/seal.png">
+            </div>
+            <p class="print-time">
+                打印时间：2015-05-20&nbsp;&nbsp;14:10:01
+            </p>
+        </div>
+    </div>
+    <div class="text-align-center" style="padding-bottom: 100px;">
+        <button type="button" class="btn primary">打印凭证</button>
+    </div>
+
+    <!-- 付款（只有支付记录） -->
+    <div class="transaction-notice-wrap">
+        <div class="transaction-notice-box">
+            <h2>电子交易告知书</h2>
+            <img class="bank" src="{{ static }}/images/bank-large/bank-cmb.png">
+            <div class="transaction-notice">
+                <table>
+                    <colgroup>
+                        <col width="9%">
+                        <col width="31%">
+                        <col width="24%">
+                        <col width="7%">
+                        <col  width="29%">
+                    </colgroup>
+                    <tbody>
+                    <tr>
+                        <td>商品名称：
+                        </td>
+                        <td><div class="fn-pr-20">甘草</div></td>
+                        <td>业务类型：付款
+                        </td>
+                        <td>订单号：
+                        </td>
+                        <td>ZY201507234220384</td>
+                    </tr>
+                    <tr>
+                        <td colspan="5">付款方全称：海王星辰大药房
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="5">付款方客户号：QT3824923u932u42343256832
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="5">收款方全称：致君药业有限公司
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="5">收款方客户号：QT3824923u932u42343256832
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="5">金额（大写）：人民币壹佰万元整
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="5">金额（小写）：CNY1,000,000.00
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+            <p>
+                付款明细
+            </p>
+            <div class="transaction-notice-detail">
+                <table>
+                    <colgroup>
+                        <col style="width: 30%"/>
+                        <col style="width: 30%"/>
+                        <col style="width: 30%"/>
+                        <col />
+                    </colgroup>
+                    <tbody>
+                    <tr>
+                        <th>
+                            创建时间
+                        </th>
+                        <th>
+                            流水号
+                        </th>
+                        <th>
+                            金额（元）
+                        </th>
+                        <th>
+                            备注
+                        </th>
+                    </tr>
+                    <tr>
+                        <td>
+                            2015-05-20&nbsp;&nbsp;14:30:25
+                        </td>
+                        <td>
+                            TJZT20150520000001
+                        </td>
+                        <td>
+                            500,000.00
+                        </td>
+                        <td>
+                            首款
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            2015-05-20&nbsp;&nbsp;14:30:25
+                        </td>
+                        <td>
+                            TJZT20150520000002
+                        </td>
+                        <td>
+                            500,000.00
+                        </td>
+                        <td>
+                            尾款
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="transaction-notice-bottom">
+                摘要：根据客户电子指令进行订单付款，订单编号-TB20151105
+                <img src="{{ static }}/images/seal.png">
+            </div>
+            <p class="print-time">
+                打印时间：2015-05-20&nbsp;&nbsp;14:10:01
+            </p>
+        </div>
+    </div>
+    <div class="text-align-center" style="padding-bottom: 100px;">
+        <button type="button" class="btn primary">打印凭证</button>
+    </div>
+
+    <!-- 提现 -->
+    <div class="transaction-notice-wrap">
+        <div class="transaction-notice-box">
+            <h2>电子交易告知书</h2>
+            <img class="bank" src="{{ static }}/images/bank-large/bank-cmb.png">
+            <div class="transaction-notice">
+                <table>
+                    <colgroup>
+                        <col width="7%">
+                        <col width="31%">
+                        <col width="24%">
+                        <col width="7%">
+                        <col>
+                    </colgroup>
+                    <tbody>
+                    <tr>
+                        <td>日期：
+                        </td>
+                        <td>2015年05月20日</td>
+                        <td>业务类型：提现
+                        </td>
+                        <td>流水号：
+                        </td>
+                        <td>AZYB2015060100123344511</td>
+                    </tr>
+                    <tr>
+                        <td colspan="5">客户号：QT3824923u932u42343256832
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="5">提现人：深圳致君药业有限公司
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="5">金额（大写）：人民币壹佰万元整
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="5">金额（小写）：CNY1,000,000.00
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="transaction-notice-bottom">
+                摘要：根据客户电子指令进行提现
+                <img src="{{ static }}/images/seal.png">
+            </div>
+            <p class="print-time">
+                打印时间：2015-05-20&nbsp;&nbsp;14:10:01
+            </p>
+        </div>
+    </div>
+    <div class="text-align-center" style="padding-bottom: 100px;">
+        <button type="button" class="btn primary">打印凭证</button>
+    </div>
+
+    <!-- 充值 -->
+    <div class="transaction-notice-wrap">
+        <div class="transaction-notice-box">
+            <h2>电子交易告知书</h2>
+            <img class="bank" src="{{ static }}/images/bank-large/bank-cmb.png">
+            <div class="transaction-notice">
+                <table>
+                    <colgroup>
+                        <col width="7%">
+                        <col width="31%">
+                        <col width="24%">
+                        <col width="7%">
+                        <col>
+                    </colgroup>
+                    <tbody>
+                    <tr>
+                        <td>日期：
+                        </td>
+                        <td>2015年05月20日</td>
+                        <td>业务类型：充值
+                        </td>
+                        <td>流水号：
+                        </td>
+                        <td>AZYB2015060100023344511</td>
+                    </tr>
+                    <tr>
+                        <td colspan="5">客户号：QT3824923u932u42343256832
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="5">客户全称：深圳致君药业有限公司
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="5">金额（大写）：人民币壹佰万元整
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="5">金额（小写）：CNY1,000,000.00
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="transaction-notice-bottom">
+                摘要：根据客户电子指令进行充值
+                <img src="{{ static }}/images/seal.png">
+            </div>
+            <p class="print-time">
+                打印时间：2015-05-20&nbsp;&nbsp;14:10:01
+            </p>
+        </div>
+    </div>
+    <div class="text-align-center" style="padding-bottom: 100px;">
+        <button type="button" class="btn primary">打印凭证</button>
+    </div>
+
+</div>
+
+{% endblock %}
+
+

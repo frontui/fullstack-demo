@@ -1,0 +1,109 @@
+{% extends "_layout/wrapper.html" %}
+{# content内容 #}
+{% block content %}
+
+	{# 菜单导航 #}
+	{{ navigator.current('nav1') }}
+
+	<!-- 验证提醒 -->
+	{% if userType == 1 %}
+		{{ Alert.verify('liliang126',  link='06账户管理个人_个人验证1.html') }}
+    {% else %}
+    	{% if isVerify == 0 %}
+	    	{{ Alert.render(text='<strong class="warning-FontColor">广东长江服务有限公司</strong>，您于2015年6月16日提交的验证申请通过审核，可以使用平台提供的所有功能。', mb='fn-mb-10') }}
+	    {% else %}
+	    	{{ Alert.verify('广东长江服务有限公司',  link='05账户管理企业_企业验证1.html') }}
+	    {% endif %}
+	    
+	    <!-- {{ Alert.loading(text='<strong class="warning-FontColor">广东长江服务有限公司</strong>，您于2015年6月16日提交的验证申请正在审核中，请耐心等待。') }}
+	    {{ Alert.loading(text='<strong class="warning-FontColor">广东长江服务有限公司</strong>，您于2015年6月16日提交的验证申请不通过，原因：银行对账账户不一致，请<a href="05账户管理企业_企业验证1.html" class="link-standard">重新验证</a>。') }} -->
+	{% endif %}
+
+	<!-- 账户余额 -->
+    <div class="data-count-wrap count-wrap-btline data-count-wrap-style1 fn-mb-10">
+        <ul class="date-count-ul">
+            <li>
+                <h5>
+					<span>账户余额：</span>
+					<i class="fs-12 font-normal">上次登录时间：{{ lastLogin }}</i>
+				</h5>
+                <h2><strong class="fs-32">{{ balance | numberFormat }}</strong>元</h2>
+                <span class="pull-left">
+                    <a href="01账户总览_充值.html" class="btn primary small-btn">充值</a>
+                    <a href="03提现明细_提现.html" class="btn links">提现</a>
+                </span>
+            </li>
+            <li>
+                <h5><span>可提现收益：</span><a href="04收益管理.html" class="link-standard">收益记录</a></h5>
+                <h2>{{ drawable | numberFormat }}</h2>
+                <a href="04收益管理_收益提现_收益提现1.html" class="pull-left btn primary small-btn fn-mt-5">收益提现</a>
+            </li>
+        </ul>
+    </div>
+
+	<!-- 收支明细 -->
+	<div class="tables-title heading-FontColor">
+		最近收支明细
+		<div class="table-title-btns">
+			<a href="/list">查看所有记录 <i class="icon-chevron-thin-right"></i></a>
+		</div>
+	</div>
+	<table class="table">
+		<colgroup>
+			<col/>
+			<col/>
+			<col style="width:70px"/>
+			<col/>
+			<col/>
+			<col style="width:78px"/>
+		</colgroup>
+		<thead>
+			<tr>
+				<th>创建时间</th>
+				<th>流水号</th>
+				<th>业务类型</th>
+				<th>状态</th>
+				<th>金额（元）</th>
+				<th class="text-align-left th-ctrls">操作</th>
+			</tr>
+		</thead>
+		<tbody>
+			{% for item in list %}
+			<tr>
+				<td>{{ item.time }}</td>
+				<td>
+					<p class="text-nowrap">{{ item.no }}</p>
+				</td>
+				<td>{{ item.type }}</td>
+				<td>{{ item.status }}</td>
+				{% if item.type == '提现' or item.type == '付款' %}
+				<td class="warning-FontColor">-{{ item.money | numberFormat}}</td>
+				{% else %}
+				<td class="success-FontColor2">+{{ item.money | numberFormat}}</td>
+				{% endif %}
+				
+				<td class="text-align-left">
+					<div class="table-ctrls">
+						详情
+						<span class="caret-down"></span>
+						<div class="ctrls">
+							<a href="/list/#/id/{{ item.id }}">详情</a>
+							<a target="_blank" href="06公共页面-电子凭证.html">打印</a>
+						</div>
+					</div>
+				</td>
+			</tr>
+			{% endfor %}
+			{% if not list %}
+            <!-- 暂无记录 -->
+            <tr>
+                <td colspan="6" class="empty">
+                    &nbsp;
+                </td>
+            </tr>
+            {% endif %}
+		</tbody>
+	</table>
+{% endblock %}
+
+

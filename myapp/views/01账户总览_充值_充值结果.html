@@ -1,0 +1,63 @@
+{% extends "_layout/wrapper.html" %}
+{# content内容 #}
+{% block content %}
+
+	{# 菜单导航 #}
+	{{ navigator.current('nav1') }}
+
+	<ol class="breadcrumb fn-mb-10">
+		<li>
+			<a href="01账户总览.html">账户总览 <i class="icon-chevron-thin-right"></i></a>
+		</li>
+		<li>
+			<a href="01账户总览_充值.html">账户充值 <i class="icon-chevron-thin-right"></i></a>
+		</li>
+		<li>
+			充值结果
+		</li>
+	</ol>
+	<!-- 处理中 -->
+	{{ Notice.wait() }}
+	<br/>
+	<!-- 等待中 -->
+	<div class="notice-wrap info">
+		<div class="notice-box">
+			<span class="notice-img"></span>
+			<h3>
+                已受理
+			</h3>
+			<p>
+				充值处理中，您可在 <a href="01账户总览_收支明细.html" class="link-standard" tabindex="1">收支明细</a> 中查看充值结果。
+			</p>
+		</div>
+	</div>
+	<br/>
+
+	<!-- 成功 -->
+	<div class="notice-wrap success">
+		<div class="notice-box">
+			<span class="notice-img"></span>
+			<h3>充值成功</h3>
+			<p class="lh-22">本次充值金额：<b class="warning-FontColor">10,000.00</b> 元</p>
+			<a href="01账户总览.html" class="link-standard" tabindex="1">查看余额</a>
+			<a href="01账户总览_充值.html" class="link-standard link-border">继续充值</a>
+		</div>
+	</div>
+	<br/>
+	<!-- 充值失败 -->
+	<div class="notice-wrap error">
+		<div class="notice-box">
+			<span class="notice-img"></span>
+			<h3>
+				充值失败
+			</h3>
+			<p>
+				原因：网络异常
+			</p>
+			<a href="01账户总览_充值.html" class="link-standard" tabindex="1">重新充值</a>
+			<a href="01账户总览.html" class="link-standard link-border">返回账户总览</a>
+		</div>
+	</div>
+{% endblock %}
+
+

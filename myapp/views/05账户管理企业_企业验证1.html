@@ -1,0 +1,142 @@
+{% extends "_layout/wrapper.html" %}
+
+{# content内容 #}
+{% block content %}
+
+	{# 菜单导航 #}
+	{{ navigator.current('nav5') }}
+
+	{# 面包屑导航 #}
+	<ol class="breadcrumb fn-mb-10">
+		<li>
+			<a href="05账户管理企业-未验证.html">账户管理 <i class="icon-chevron-thin-right"></i></a>
+		</li>
+		<li>
+			企业验证
+		</li>
+	</ol>
+
+	{# 步骤 #}
+	{{ Step.render('pass1', '安全设置', '企业用户安全验证', '验证结果') }}
+
+	{# 账户信息 #}
+	<div class="form-frame fn-mb-10">
+		<div class="form-title">
+			账户信息
+		</div>
+		<div class="form-layer1">
+			<div class="form-layer2">
+				<form action="05账户管理企业_密码重置3.html" autocomplete="off">
+					{# 企业账户 #}
+					<div class="form-group">
+						<label class="form-control-label">
+							<span>企业账户</span>
+							<em>：</em>
+						</label>
+						<div class="form-control-wrap">
+							<input type="text" class="form-control" value="XXX有限公司" readonly="readonly">
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="form-control-label">
+							<span>企业营业执照号码</span>
+							<em>：</em>
+						</label>
+						<div class="form-control-wrap">
+							<input type="text" class="form-control" value="25522523852025520" readonly="readonly">
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="form-control-label">
+							<span>企业营业执照有效期</span>
+							<em>：</em>
+						</label>
+						<div class="form-control-wrap">
+							<input type="text" class="form-control" value="2010-01-01至2020-12-31" readonly="readonly">
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="form-control-label">
+							<span>组织机构代码证</span>
+							<em>：</em>
+						</label>
+						<div class="form-control-wrap">
+							<input type="text" class="form-control" value="52588525-1" readonly="readonly">
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+
+	{# 安全设置 #}
+	<div class="form-frame">
+		<div class="form-title">
+			安全设置
+		</div>
+		{# Alert 提示 #}
+        {{ Alert.loading('付款或修改账户信息时输入，为了您的账户安全，请不要与银行密码或登录密码一致') }}
+
+		<div class="form-layer1">
+			<div class="form-layer2">
+				<form action="05账户管理企业_企业验证2.html" autocomplete="off">
+					{# 支付手机号码 #}
+					<div class="form-group">
+						<label class="form-control-label" for="mobile">
+							<span>支付手机号码</span>
+							<em>：</em>
+						</label>
+						<div class="form-control-wrap">
+							<input type="text" class="form-control" tabindex="1" id="mobile" value="13588888886">
+						</div>
+					</div>
+					{# 验证码 #}
+					<div class="form-group">
+						<label class="form-control-label" for="verify">
+							<span>验证码</span>
+							<em>：</em>
+						</label>
+						<div class="form-control-wrap">
+							{{ Form.verify('verify', tabindex=2) }}
+							{{ Form.verify('verify', '49秒后重新发送', 'disabled', tabindex=2) }}
+						</div>
+					</div>
+					{# 设置支付密码 #}
+					<div class="form-group has-error">
+						<label class="form-control-label" for="password">
+							<span>设置支付密码</span>
+							<em>：</em>
+						</label>
+						<div class="form-control-wrap">
+							{{ Form.password(tabindex=3) }}
+
+							{{ Form.tips('输入有误') }}
+						</div>
+					</div>
+					{# 确认支付密码 #}
+					<div class="form-group has-correct">
+						<label class="form-control-label" for="repassword">
+							<span>确认支付密码</span>
+							<em>：</em>
+						</label>
+						<div class="form-control-wrap">
+							{{ Form.password('repassword', 'repassword', tabindex=4) }}
+
+							{{ Form.tips('输入正确') }}
+						</div>
+					</div>
+					{# 协议 #}
+					<div class="form-group">
+						<div class="form-control-wrap">
+							{{ Form.agreement(tabindex=5) }}
+						</div>
+					</div>
+					{# 按钮 #}
+					<div class="form-group">
+						{{ Form.defaultBtn(tabindex=6) }}
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+{% endblock %}

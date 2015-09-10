@@ -1,0 +1,102 @@
+{% extends "_layout/wrapper.html" %}
+
+{# content内容 #}
+{% block content %}
+
+	{# 菜单导航 #}
+	{{ navigator.current('nav5') }}
+
+	{# 面包屑导航 #}
+	<ol class="breadcrumb fn-mb-10">
+		<li>
+			<a href="06账户管理个人.html">账户管理 <i class="icon-chevron-thin-right"></i></a>
+		</li>
+		<li>
+			添加银行卡
+		</li>
+	</ol>
+
+	{# 添加银行卡 #}
+	<div class="form-frame">
+		<div class="form-title">
+			添加银行卡
+		</div>
+		<div class="form-layer1">
+			<div class="form-layer2">
+				<form action="06账户管理个人_添加银行卡2.html" autocomplete="off">
+					{# 姓名 #}
+					<div class="form-group">
+						<label class="form-control-label" for="username">
+							<span>姓名</span>
+							<em>：</em>
+						</label>
+						<div class="form-control-wrap">
+							<input type="text" value="陈少峰" readonly class="form-control" id="username" >
+						</div>
+					</div>
+					{# 身份证号 #}
+					<div class="form-group">
+						<label class="form-control-label" for="idcard">
+							<span>身份证号</span>
+							<em>：</em>
+						</label>
+						<div class="form-control-wrap">
+							<input type="text" name="idcard" value="4000*********6656" readonly class="form-control"/>
+						</div>
+					</div>
+                    {# 银行卡号 #}
+					<div class="form-group">
+						<label class="form-control-label" for="bankcard">
+							<span>银行卡号</span>
+							<em>：</em>
+						</label>
+						<div class="form-control-wrap">
+							{{ Form.bankcard() }}
+						</div>
+					</div>
+                    <!-- 输入银行卡号后自动根据bin码出现对应开户行信息 -->
+					{# 开户行 #}
+					<div class="form-group" style="*z-index: 2">
+						<label class="form-control-label" for="bank">
+							<span>开户行</span>
+							<em>：</em>
+						</label>
+						<div class="form-control-wrap">
+							{{ Form.banks2(type=1) }}
+						</div>
+					</div>
+					{# 手机号码 #}
+					<div class="form-group">
+						<label class="form-control-label" for="mobile">
+							<span>手机号码</span>
+							<em>：</em>
+						</label>
+						<div class="form-control-wrap">
+							{{ Form.mobile('此卡在银行预留的手机号码') }}
+						</div>
+					</div>
+					{# 短信验证码 #}
+					<div class="form-group">
+						<label class="form-control-label" for="form-control-verify1">
+							<span>验证码</span>
+							<em>：</em>
+						</label>
+						<div class="form-control-wrap">
+							{{ Form.verify('form-control-verify1') }}
+							<!-- 已发送 -->
+							{{ Form.verify('form-control-verify1','49秒后再获取', 'disabled') }}
+						</div>
+					</div>
+					{# 协议 #}
+					<div class="form-group">
+						{{ Form.agreement() }}
+					</div>
+					{# 按钮 #}
+					<div class="form-group">
+						{{ Form.defaultBtn('下一步') }}
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+{% endblock %}

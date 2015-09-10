@@ -1,0 +1,174 @@
+{% extends "_layout/wrapper.html" %}
+{# content内容 #}
+{% block content %}
+
+	{# 菜单导航 #}
+	{{ navigator.current('nav5') }}
+
+	{# 提示验证 #}
+	{{ Alert.verify('liang1126', '06账户管理个人_个人验证1.html') }}
+
+	{# 账户资料 #}
+	<div class="tables-title title-border">
+		账户资料
+	</div>
+	<div class="data-count-wrap fn-mb-10">
+		<ul class="info-list">
+			<li>
+				<dl>
+					<dt>网站ID：</dt>
+					<dd>liang1126</dd>
+				</dl>
+			</li>
+			<li>
+				<dl>
+					<dt>手机号：</dt>
+					<dd>135****9625</dd>
+				</dl>
+			</li>
+			<li>
+				<dl>
+					<dt>姓名：</dt>
+					<dd>陈少峰</dd>
+				</dl>
+			</li>
+			<li>
+				<dl>
+					<dt>身份证：</dt>
+					<dd>4366*********8250</dd>
+				</dl>
+			</li>
+		</ul>
+	</div>
+
+	{# 银行卡管理 #}
+	<div class="tables-title title-border">
+		银行卡管理
+	</div>
+	<div class="data-count-wrap fn-mb-10">
+		<div class="bankcard-list-wrap">
+            <ul class="bankcard-list">
+                <li class="add-card">
+                    <a href="###" class="link-standard" id="j-modal-btn-3">
+                        +&nbsp;添加银行卡
+                    </a>
+                </li>
+            </ul>
+		</div>
+	</div>
+
+	{# 安全管理 #}
+	<div class="tables-title title-border">
+		安全管理
+	</div>
+	<div class="data-count-wrap">
+		<div class="password-status-wrap fn-pl-10 fn-pr-10">
+			<table class="password-status-table">
+				<colgroup>
+					<col style="width: 78px;">
+					<col style="width: 92px;">
+					<col>
+					<col style="width: 60px;">
+				</colgroup>
+				<tbody>
+					<!--<tr>-->
+						<!--<td>-->
+							<!--<strong>登录密码</strong>-->
+						<!--</td>-->
+						<!--<td>-->
+							<!--<span class="password-status-label done">-->
+								<!--<b></b>-->
+								<!--已设置-->
+							<!--</span>-->
+						<!--</td>-->
+						<!--<td class="viceText-FontColor">-->
+							<!--上次登录时间：2015年05月21日 17：08：30-->
+						<!--</td>-->
+						<!--<td class="text-align-right">-->
+							<!--<a href="###" class="link-standard">修改</a>-->
+						<!--</td>-->
+					<!--</tr>-->
+					<tr>
+						<td>
+							<strong>支付密码</strong>
+						</td>
+						<td>
+							<span class="password-status-label notdone">
+								<b></b>
+								未设置
+							</span>
+						</td>
+						<td class="viceText-FontColor">
+							在账户资金变动，修改账户信息时需要输入的密码
+						</td>
+						<td class="text-align-right">
+                            <a class="link-standard" id="j-modal-btn-4">设置</a>
+						</td>
+					</tr>
+					<!--<tr>-->
+						<!--<td>-->
+							<!--<strong>支付手机号码</strong>-->
+						<!--</td>-->
+						<!--<td>-->
+							<!--<span class="password-status-label notdone">-->
+								<!--<b></b>-->
+								<!--未设置-->
+							<!--</span>-->
+						<!--</td>-->
+						<!--<td class="viceText-FontColor">-->
+							<!--您未绑定手机-->
+						<!--</td>-->
+						<!--<td class="text-align-right">-->
+							<!--<a href="###" class="link-standard">设置</a>-->
+						<!--</td>-->
+					<!--</tr>-->
+					<tr>
+						<td>
+							<strong>绑定手机</strong>
+						</td>
+						<td>
+							<span class="password-status-label done">
+								<b></b>
+								已设置
+							</span>
+						</td>
+						<td class="viceText-FontColor">
+							&nbsp;
+						</td>
+						<td class="text-align-right">
+							&nbsp;
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+
+{% endblock %}
+
+{% block jsPage %}
+<script>
+    $(function () {
+        $('#j-modal-btn-3').on('click', function () {
+            $('#verify-success').modalLayer({
+                icon: 'error',
+                title: '您尚未进行账户验证，暂不能使用此功能！',
+                ok: function () {
+                    alert('关闭');
+                }
+            });
+        })
+        $('#j-modal-btn-4').on('click', function () {
+            $('#verify-success').modalLayer({
+                icon: 'error',
+                title: '您尚未进行账户验证，暂不能使用此功能！',
+                ok: function () {
+                    alert('关闭');
+                }
+            });
+        })
+    });
+
+
+</script>
+{% endblock %}

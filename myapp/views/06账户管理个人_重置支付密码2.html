@@ -1,0 +1,42 @@
+{% extends "_layout/wrapper.html" %}
+
+{# content内容 #}
+{% block content %}
+
+	{# 菜单导航 #}
+	{{ navigator.current('nav5') }}
+
+	{# 面包屑导航 #}
+    <ol class="breadcrumb fn-mb-10">
+        <li>
+            <a href="06账户管理个人.html">账户管理 <i class="icon-chevron-thin-right"></i></a>
+        </li>
+        <li>
+            重置支付密码
+        </li>
+    </ol>
+    <!-- 第一次显示设置支付密码 -->
+    <ol class="breadcrumb fn-mb-10">
+        <li>
+            <a href="06账户管理个人.html">账户管理 <i class="icon-chevron-thin-right"></i></a>
+        </li>
+        <li>
+            设置支付密码
+        </li>
+    </ol>
+
+	{# 设置支付密码 #}
+	<div class="tables-title title-border heading-FontColor">
+    重置支付密码
+	</div>
+	<div class="notice-wrap success">
+	<div class="notice-box">
+		<span class="notice-img"></span>
+		<h3>
+      重置成功！
+		</h3>
+		<a href="收银台_充值.html" class="link-standard">马上充值</a>
+		<a href="01账户总览.html" class="link-standard link-border">进入账户总览</a>
+	</div>
+</div>
+{% endblock %}

@@ -1,0 +1,202 @@
+#!/usr/bin/env node
+
+var cldr = require('cldr');
+var hash = require('crypto').createHash.bind(null, 'sha1');
+var COMPILE_CACHE = {};
+
+/**
+ * Gather all of the plural functions for the supported locales
+ */
+
+var digits = cldr.extractDigitsByNumberSystemId();
+
+var groups = cldr.localeIds.reduce(function(acc, locale) {
+  var format = cldr.extractNumberFormats(locale);
+  var symbols = cldr.extractNumberSymbols(locale);
+
+  var systemId = cldr.extractDefaultNumberSystemId(locale);
+
+  systemId = compileNumberSystem(systemId);
+
+  addToGroup(acc, 'currency', format.currency['default'], locale, symbols, systemId);
+  addToGroup(acc, 'decimal', format.decimal['default'], locale, symbols, systemId);
+  addToGroup(acc, 'percent', format.percent['default'], locale, symbols, systemId);
+
+  process.stderr.write('.');
+
+  return acc;
+}, {});
+
+/**
+ * Minimize the number of duplicate primary locales
+ */
+
+var reduced = {
+  currency: reduceLocales(groups.currency),
+  decimal: reduceLocales(groups.decimal),
+  percent: reduceLocales(groups.percent),
+}
+
+var out = 'var e = exports;\n' +
+  formatSection('currency', reduced.currency) + '\n' +
+  formatSection('decimal', reduced.decimal) + '\n' +
+  formatSection('percent', reduced.percent) + '\n' +
+  Object.keys(COMPILE_CACHE).map(function(k) {return COMPILE_CACHE[k];}).join('\n\n')
+
+process.stdout.write(out.replace("\xa0", ' '));
+
+function addToGroup(acc, subgroup, conf, locale, symbols, systemId) {
+  var decimal = symbols.decimal;
+  var group = symbols.group;
+  var percentSign = symbols.percentSign;
+
+  var fn = compile(conf, decimal, group, percentSign, systemId);
+
+  var sg = acc[subgroup] = acc[subgroup] || {};
+  (sg[fn.name] = sg[fn.name] || []).push(locale);
+}
+
+function compileNumberSystem(id) {
+  if (id === 'latn' || digits[id].length !== 10) return null;
+
+  var name = 'system_' + id;
+  if (COMPILE_CACHE[name]) return COMPILE_CACHE[name];
+
+  var units = digits[id];
+
+  var out = {
+    name: name,
+    toString: function() {
+      return '' +
+        'var ' + name + '_digits = ' + JSON.stringify(units) + ';\n' +
+        'function ' + name + '(str) {\n' +
+        '  return str.replace(/(\\d)/g, function(i) { return ' + name + '_digits[i]; });\n' +
+        '};\n';
+    }
+  };
+
+  return COMPILE_CACHE[name] = out;
+}
+
+/**
+ * Compile a local format
+ */
+
+function compile(conf, dec, group, percentSign, numberSystem) {
+  // TODO handle negatives - we're ignoring them for now...
+  conf = conf.split(';')[0];
+
+  var c, d, p;
+  var cacheKey = hash().update(conf + '|' + dec + '|' + group + '|' + percentSign + '|' + numberSystem).digest('hex').slice(0, 7);
+
+  dec = JSON.stringify(dec);
+  group = JSON.stringify(group);
+  percentSign = '" + ' + JSON.stringify(percentSign) + ' + "';
+
+  if (COMPILE_CACHE[cacheKey]) return COMPILE_CACHE[cacheKey];
+  var parts = conf.split('.');
+  parts[1] = parts[1] || '';
+
+  var wholeGroupSize = countGroupSize(parts[0], /,([\#0]+)/);
+  var decimalGroupSize = countGroupSize(parts[1], /([\#0]+)/) || wholeGroupSize;
+  var wholeMinSize = countGroupSize(parts[0], /(0+)/);
+  var decimalMinSize = countGroupSize(parts[1], /(0+)/);
+
+  var whole = replaceSymbol(parts[0], formatReplace('whole', wholeMinSize));
+  var decimal = replaceSymbol(parts[1], formatReplace('decimal', decimalMinSize, true));
+
+  var wholeGroup = wholeGroupSize ?
+    '  for (var i=0, newWhole="", l = whole.length - 1; i <= l; i++) {\n' +
+    '    newWhole = (!i || i % ' + wholeGroupSize + ' ? whole[l - i] : whole[l - i] + ' + group + ') + newWhole;\n' +
+    '  }\n' +
+    '  whole = newWhole;\n' :
+    '';
+
+  var ending = decimalMinSize ?
+    "  var whole = parts[0];\n" +
+    "  var decimal = parts[1] || '';\n" +
+    wholeGroup +
+    '  return ' + wrapNumberSystem(whole + ' +' + dec + '+' + decimal) + ';' :
+
+    "  var whole = parts[0];\n" +
+    "  var decimal = parts[1];\n" +
+    wholeGroup +
+    "  var formattedWhole = " + whole + ";\n" +
+    "  return " + wrapNumberSystem("decimal ? formattedWhole + " + dec + " + " + decimal + " : formattedWhole") + ";";
+
+  var body = "" +
+    "  opts = opts || {};\n" +
+    "  var parts = (amount + '').split('.');\n" +
+    ending;
+
+  var fn = {
+    name: 'num_' + cacheKey,
+    toString: function() { return 'function num_' + cacheKey + '(amount, opts) {\n' + body + '\n}'; }
+  };
+
+  return COMPILE_CACHE[cacheKey] = fn;
+
+  function formatReplace(name, size, reverse) {
+    if (size === 0) return '" + ' + name + ' + "';
+    if (size === 1) return '" + (!' + name + '.length ? "0" : ' + name + ') + "';
+
+    var zeros = Array(size + 1).join('0');
+    var padding = !reverse ?
+      '("' + zeros + '" + ' + name + ').slice(-' + size + ')' :
+      '(' + name + ' + "' + zeros + '").slice(0, ' + size + ')';
+
+    return '" + (' + name + '.length < ' + size + ' ? ' + padding + ' : ' + name + ') + "';
+  }
+
+  function countGroupSize(g, re) {
+    var matches = g.match(re);
+    return matches ?
+      matches[1].length :
+      0;
+  }
+
+  function replaceSymbol(part, g) {
+    if (!part) return '""';
+    return '"' + part.replace(/([\,\%\¤])/g, function(_, symbol) {
+      if (symbol === ',') return '';
+      if (symbol === '%') return percentSign;
+      if (symbol === '¤') return '" + (opts.unit || "") + "';
+      return symbol;
+    }).replace(/([\#0]+)/g, g) + '"';
+  }
+
+  function wrapNumberSystem(str) {
+    if (!numberSystem) return str;
+    return numberSystem.name + '(' + str + ')';
+  }
+}
+
+function reduceLocales(locales) {
+  return Object.keys(locales).reduce(function(acc, conf) {
+    acc[conf] = locales[conf].reduce(function(list, locale) {
+      var parts = locale.split('_');
+
+      var short = parts[0];
+      if (short === locale) {
+        list.push(locale);
+        return list;
+      }
+
+      if (!~list.indexOf(short)) list.push(locale);
+
+      return list;
+    }, []);
+    return acc;
+  }, {});
+}
+
+function formatSection(name, reduced) {
+  return Object.keys(reduced).reduce(function(acc, id) {
+    var list = reduced[id];
+    if (!list.length) return acc;
+
+    return acc + '\n\n' + list.map(function(key) {
+      return name + '.' + key + ' =';
+    }).join('\n ') + ' ' + id + ';';
+  }, 'var ' + name + ' = e.' + name + ' = {};\n');
+}

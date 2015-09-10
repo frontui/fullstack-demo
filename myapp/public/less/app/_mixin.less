@@ -1,0 +1,105 @@
+//
+// --- 全局 mixin
+//
+.init-margin(@min: 0, @max: 50, @space: 5, @pre: fn) {
+  // 递归生成margin
+  .build-margin(@count) when (@count >= @min) {
+    .build-margin((@count - @space));
+
+    .@{pre}-mt-@{count} {
+      margin-top: @count * 1px;
+    }
+    .@{pre}-mb-@{count} {
+      margin-bottom: @count * 1px;
+    }
+    .@{pre}-mtb-@{count} {
+      margin-top: @count * 1px;
+      margin-bottom: @count * 1px;
+    }
+
+    .@{pre}-ml-@{count} {
+      margin-left: @count * 1px;
+    }
+    .@{pre}-mr-@{count} {
+      margin-right: @count * 1px;
+    }
+    .@{pre}-mlr-@{count} {
+      margin-left: @count * 1px;
+      margin-right: @count * 1px;
+    }
+
+    .@{pre}-ma-@{count} {
+      margin: @count * 1px;
+    }
+  }
+
+  .build-margin(@max);
+}
+
+.init-padding(@min: 0, @max: 50, @space: 5, @pre: fn) {
+  // 递归生成padding
+  .build-padding(@count) when (@count >= @min) {
+    .build-padding((@count - @space));
+
+    .@{pre}-pt-@{count} {
+      padding-top: @count * 1px;
+    }
+    .@{pre}-pb-@{count} {
+      padding-bottom: @count * 1px;
+    }
+    .@{pre}-ptb-@{count} {
+      padding-top: @count * 1px;
+      padding-bottom: @count * 1px;
+    }
+
+    .@{pre}-pl-@{count} {
+      padding-left: @count * 1px;
+    }
+    .@{pre}-pr-@{count} {
+      padding-right: @count * 1px;
+    }
+    .@{pre}-plr-@{count} {
+      padding-left: @count * 1px;
+      padding-right: @count * 1px;
+    }
+
+    .@{pre}-pa-@{count} {
+      padding: @count * 1px;
+    }
+  }
+
+  .build-padding(@max);
+}
+
+.init-fontSize(@min: 12, @max: 36, @space: 2, @pre: fs) {
+  // 递归生成fontsize
+  .build-fontSize(@count) when (@count >= @min) {
+    .build-fontSize((@count - @space));
+
+    .@{pre}-@{count} {
+      font-size: @count * 1px;
+    }
+    .lh-@{count} {
+      line-height: @count * 1px;
+    }
+  }
+
+  .build-fontSize(@max);
+}
+
+//
+// --- 输出
+//
+.init-margin;
+.init-padding;
+.init-fontSize;
+.pull-left{
+  float: left;
+}
+.pull-right{
+  float: right;
+}
+.font-normal{
+  font-style: normal;
+  font-weight: 500;
+}

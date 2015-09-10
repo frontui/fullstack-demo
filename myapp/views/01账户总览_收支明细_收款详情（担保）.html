@@ -1,0 +1,101 @@
+{% extends "_layout/wrapper.html" %}
+{# content内容 #}
+{% block content %}
+
+	{# 菜单导航 #}
+	{% import "_components/navigator.html" as navigator %}
+	{{ navigator.current('nav1') }}
+
+    <ol class="breadcrumb fn-mb-10">
+        <li>
+            <a href="01账户总览.html">账户总览 <i class="icon-chevron-thin-right"></i></a>
+        </li>
+        <li>
+            <a href="01账户总览_收支明细.html">收支明细 <i class="icon-chevron-thin-right"></i></a>
+        </li>
+        <li>
+            交易详情
+        </li>
+    </ol>
+
+	<div class="tables-title heading-FontColor fn-mb-10">
+        交易详情
+		<div class="table-title-btns">
+			<a href="javascript:history.go(-1)">返回 <i class="icon-chevron-thin-right"></i></a>
+		</div>
+	</div>
+
+	<!-- 状态 -->
+	{{ Alert.success('交易成功', '付款凭证.html', '交易金额已到账', 'fn-mb-20') }}
+
+<table class="table table-border inverse fn-mb-15">
+    <colgroup>
+        <col/>
+        <col/>
+        <col/>
+        <col/>
+        <col/>
+    </colgroup>
+    <thead>
+    <tr>
+        <th>业务类型</th>
+        <th>订单号</th>
+        <th>商品名称</th>
+        <th>金额（元）</th>
+        <th>付款方</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>收款</td>
+        <td>
+            <p class="text-nowrap" title="TJZT20150520000001">TJZT20150520000001</p>
+        </td>
+        <td>甘草</td>
+        <td>33,021,500.00</td>
+        <td>海王星辰大药房</td>
+    </tr>
+    </tbody>
+</table>
+
+<h5 class="fn-mb-15 fn-pl-10">清算记录</h5>
+<table class="table inverse">
+    <colgroup>
+        <col/>
+        <col/>
+        <col/>
+        <col/>
+        <col/>
+    </colgroup>
+    <thead>
+    <tr>
+        <th>创建时间</th>
+        <th>流水号</th>
+        <th>金额</th>
+        <th>状态</th>
+        <th>备注</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>2015.05.25  16:20</td>
+        <td>
+            <p class="text-nowrap" title="TJZT20150520000001">TJZT20150520000001</p>
+        </td>
+        <td>33,021,500.00</td>
+        <td>首款</td>
+    </tr>
+    <tr>
+        <td>2015.05.25  16:20</td>
+        <td>
+            <p class="text-nowrap" title="TJZT20150520000001">TJZT20150520000001</p>
+        </td>
+        <td>33,021,500.00</td>
+        <td>成功</td>
+        <td>尾款</td>
+    </tr>
+    </tbody>
+</table>
+{% endblock %}
+
+

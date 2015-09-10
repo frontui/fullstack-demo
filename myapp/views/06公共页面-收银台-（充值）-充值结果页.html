@@ -1,0 +1,50 @@
+{% extends "_layout/casher-frame.html" %}
+
+{# content #}
+{% block content %}
+
+    <!-- 这个页面并不需要有收银台的头部 -->
+
+    {# 信息处理中 #}
+    <div class="notice-wrap waiting">
+        <div class="notice-box">
+            <span class="notice-img"></span>
+            <h3>处理中...</h3>
+            <p>请不要关闭浏览器，系统正在紧张处理中。</p>
+        </div>
+    </div>
+
+    {# 充值处理中 #}
+    <div class="notice-wrap info">
+        <div class="notice-box">
+            <span class="notice-img"></span>
+            <h3>已受理</h3>
+            <p>充值处理中，您可在&nbsp;<a href="01账户总览_收支明细.html" class="link-standard" tabindex="1">收支明细</a>&nbsp;中查看充值结果。</p>
+        </div>
+    </div>
+
+    {# 充值成功 #}
+    <div class="notice-wrap success">
+        <div class="notice-box">
+            <span class="notice-img"></span>
+            <h3>充值成功！</h3>
+            <p>本次充值金额：&nbsp;<span class="warning-FontColor">XX,XXX.XX</span>&nbsp;元</p>
+            <a href="###" class="link-standard" tabindex="1">查看余额</a>
+            <a href="###" class="link-standard link-border">继续充值</a>
+        </div>
+    </div>
+
+    {# 充值失败 #}
+    <div class="notice-wrap error">
+        <div class="notice-box">
+            <span class="notice-img"></span>
+            <h3>充值失败</h3>
+            <p>原因：网络异常</p>
+            <a href="###" class="link-standard" tabindex="1">重新充值</a>
+            <a href="###" class="link-standard link-border">返回我的账户</a>
+        </div>
+    </div>
+
+{% endblock %}
+
+

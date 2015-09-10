@@ -1,0 +1,68 @@
+{% extends "_layout/wrapper.html" %}
+{# content内容 #}
+{% block content %}
+
+	{# 菜单导航 #}
+	{{ navigator.current('nav1') }}
+
+	<ol class="breadcrumb fn-mb-10">
+		<li>
+			<a href="01账户总览.html">账户总览 <i class="icon-chevron-thin-right"></i></a>
+		</li>
+		<li>
+			<a href="01账户总览_收支明细.html">收支明细 <i class="icon-chevron-thin-right"></i></a>
+		</li>
+		<li>
+			充值详情
+		</li>
+	</ol>
+
+	<div class="tables-title heading-FontColor fn-mb-10">
+		充值详情
+		<div class="table-title-btns">
+			<a href="javascript:history.go(-1)">返回 <i class="icon-chevron-thin-right"></i></a>
+		</div>
+	</div>
+
+
+	{# 提示 #}
+	{{ Alert.success() }}
+	{{ Alert.danger('充值失败', '充值金额已返回您的银行账户。') }}
+	{{ Alert.loading('充值处理中') }}
+
+	<div class="section fn-pt-10 fn-mb-20">
+		<span class="heading-FontColor">充值账户：</span> <em class="font-normal">海王星辰大药房</em>
+	</div>
+
+	<table class="table table-border inverse">
+		<colgroup>
+			<col/>
+			<col/>
+			<col/>
+			<col/>
+			<col/>
+		</colgroup>
+		<thead>
+			<tr>
+				<th>业务类型</th>
+				<th>创建时间</th>
+				<th>流水号</th>
+				<th>金额（元）</th>
+				<th>资金来源</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>充值</td>
+				<td>2015.05.20  16:56</td>
+				<td>
+					<p class="text-nowrap">TJZT20150520000001</p>
+				</td>
+				<td>1,000.00</td>
+				<td>网银支付</td>
+			</tr>
+		</tbody>
+	</table>
+{% endblock %}
+
+

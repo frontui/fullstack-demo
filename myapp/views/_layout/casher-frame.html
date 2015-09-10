@@ -1,0 +1,20 @@
+{% extends "_layout/layout.html" %}
+
+{# 通用布局 #}
+{% block body %}
+    <div class="wrapper">
+
+        {# 收银台页头 #}
+        {#% import "_components/casherHeader.html" as casherHeader %#}
+        {#{ casherHeader.render() }#}
+
+        {# 收银台内容主框架 #}
+        <div class="casher-main-wrap">
+            {% block content %}
+            {% endblock %}
+        </div>
+
+    </div>
+{% endblock %}
+
+

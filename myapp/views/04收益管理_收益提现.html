@@ -1,0 +1,203 @@
+{% extends "_layout/wrapper.html" %}
+{# content内容 #}
+{% block content %}
+
+	{# 菜单导航 #}
+	{{ navigator.current('nav4') }}
+
+    <ol class="breadcrumb fn-mb-10">
+        <li>
+            <a href="01账户总览.html">账户总览  <i class="icon-chevron-thin-right"></i></a>
+        </li>
+        <li>
+            收益提现
+        </li>
+    </ol>
+
+
+	{# tab #}
+	<div class="tabs-wrap type1">
+		<ul class="tabs">
+			<li>
+				<a href="04收益管理.html" class="tabs-btn tab-disabled">
+					收益记录
+				</a>
+			</li>
+			<li class="active">
+				<a href="04收益管理_收益提现.html" class="tabs-btn tab-disabled">
+					收益提现
+				</a>
+			</li>
+		</ul>
+	</div>
+
+	{# tab #}
+	<div class="tabs-content">
+
+		{# 收益提现 #}
+		<div class="tabs-panel active" id="draw">
+			{# 数据统计 #}
+			<div class="data-count-wrap count-wrap-btline data-count-wrap-style3 fn-mt-10 fn-mb-10">
+				<div>
+					<ul class="date-count-ul">
+						<li class="count-title">
+							<h4>当前数据统计</h4>
+							<span class="arrows-shadow"></span>
+							<span class="arrows"></span>
+						</li>
+						<li>
+							<h5 class="default-FontColor">
+								<span class="heading-FontColor">可提收益</span>
+								单位（元）
+							</h5>
+							<h2>
+								60,030,000.00
+							</h2>
+							<a href="04收益管理_收益提现_收益提现1.html" class="btn primary small-btn fn-ml-15">收益提现</a>
+						</li>
+						<li>
+							<h5 class="default-FontColor">
+								<span class="heading-FontColor">历史累计收益</span>
+								单位（元）
+							</h5>
+							<h2>
+								5,25265,230,000.00
+							</h2>
+						</li>
+					</ul>
+				</div>
+			</div>
+
+			{# 记录 #}
+			<div class="tables-title heading-FontColor fn-mb-20">
+				收益提现记录
+			</div>
+			<div id="j-draw-switcher" data-toggle="switcher" data-item=".filter-check-item" data-keep="true" class="section-title form-frame-filter fn-pl-10 fn-mb-20">
+				<span class="heading-FontColor">时间：</span>
+				<a href="#3m" class="filter-check-item active">最近三个月</a>
+				<a href="#b3m" class="filter-check-item">三个月前</a>
+			</div>
+			<table class="table table-border-top">
+				<colgroup>
+					<col/>
+					<col/>
+					<col/>
+					<col/>
+					<col/>
+					<col style="width:70px"/>
+				</colgroup>
+				<thead>
+				<tr>
+					<th>创建时间</th>
+					<th>流水号</th>
+					<th>金额（元）</th>
+					<th>银行账户</th>
+					<th>状态</th>
+					<th class="text-align-left th-ctrls">操作</th>
+				</tr>
+				</thead>
+				<tbody>
+				<tr>
+					<td>2015.05.20  16:56</td>
+					<td>
+						<p class="text-nowrap">TJZT20150520000002</p>
+					</td>
+					<td>650.00</td>
+					<td>招商银行|尾号1234</td>
+					<td>处理中</td>
+					<td class="text-align-left">&nbsp;</td>
+				</tr>
+				<tr>
+					<td>2015.05.20  16:56</td>
+					<td>
+						<p class="text-nowrap">TJZT20150520000003</p>
+					</td>
+					<td>150.00</td>
+					<td>招商银行|尾号1234</td>
+					<td>成功</td>
+					<td class="text-align-left">
+						<a target="_blank" href="06公共页面-电子凭证.html" class="link-standard">打印</a>
+					</td>
+				</tr>
+				<tr>
+					<td>2015.05.20  16:56</td>
+					<td>
+						<p class="text-nowrap">TJZT20150520000003</p>
+					</td>
+					<td>150.00</td>
+					<td>招商银行|尾号1234</td>
+					<td>成功</td>
+					<td class="text-align-left">
+						<a target="_blank" href="06公共页面-电子凭证.html" class="link-standard">打印</a>
+					</td>
+				</tr>
+				<tr>
+					<td>2015.05.20  16:56</td>
+					<td>
+						<p class="text-nowrap">TJZT20150520000003</p>
+					</td>
+					<td>150.00</td>
+					<td>招商银行|尾号1234</td>
+					<td>成功</td>
+					<td class="text-align-left">
+						<a target="_blank" href="06公共页面-电子凭证.html" class="link-standard">打印</a>
+					</td>
+				</tr>
+				<tr>
+					<td>2015.05.20  16:56</td>
+					<td>
+						<p class="text-nowrap">TJZT20150520000003</p>
+					</td>
+					<td>150.00</td>
+					<td>招商银行|尾号1234</td>
+					<td>成功</td>
+					<td class="text-align-left">
+						<a target="_blank" href="06公共页面-电子凭证.html" class="link-standard">打印</a>
+					</td>
+				</tr>
+				<tr>
+					<td>2015.05.20  16:56</td>
+					<td>
+						<p class="text-nowrap">TJZT20150520000003</p>
+					</td>
+					<td>150.00</td>
+					<td>招商银行|尾号1234</td>
+					<td>失败</td>
+					<td class="text-align-left">
+						&nbsp;
+					</td>
+				</tr>
+				</tbody>
+			</table>
+			{# 分页 #}
+			{{ Pager.render() }}
+		</div>
+	</div>
+{% endblock %}
+
+{% block jsPage %}
+<script>
+	/*# start: 技术兄弟套模板后请删除，只做test api说明 #*/
+	/* 技术api接口 */
+	// 收益提现时间切换
+	function fnDrawPickTimer(e){
+		console.log('收益提现:'+$(e.target).html())
+	}
+	/*#   end: 技术兄弟套模板后请删除，只做test api说明 #*/
+
+
+	~(function($) {
+
+		var init = function() {
+
+			// 收益提现时间切换
+			$('#j-draw-switcher').on('select.ui.switcher', fnDrawPickTimer)
+			//$('#j-home-switcher').on('select.ui.switcher', $.proxy(QueryHelper.fnDrawPickTimer, QueryHelper))
+
+		};
+
+		$(document).ready(init);
+	})(jQuery);
+</script>
+{% endblock %}
+

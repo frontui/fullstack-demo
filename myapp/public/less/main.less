@@ -1,0 +1,141 @@
+/*!
+* @project: 卖家标准版 v3.0
+* @author : tommyshao <jinhong.shao@frontpay.cn>
+* @date   : 2015-08-18
+*/
+
+// log:
+// 2015-08-18 初始化项目
+
+@import '_share';
+@import '_sprite_all';
+
+
+
+// wrapper global
+// --------------
+.wrapper{
+  /*margin: 20px;*/
+}
+
+// Function mixin
+// -----------------
+@import "app/_mixin";
+
+
+// 全局重置
+// -------
+@import "app/_global";
+
+// alert
+// -----
+@import "app/_alert";
+
+
+//
+//--- 充值
+//
+@import "app/_recharge";
+
+//
+// --- 表单
+//
+.drop-select-province,
+.drop-select-city {
+  width: 49%;
+}
+.drop-select-province{
+  margin-right: 2%;
+}
+.drop-select-city{
+  margin-left: -4px;
+}
+
+//
+// --- 账户资料
+//
+.info-list {
+  margin: 0;
+  padding: 0 10px;
+  font-size: @small-FontSize;
+  .clearfix();
+  //
+  overflow: hidden;
+
+  li{
+    float: left;
+    list-style: none;
+    width: 50%;
+    line-height: 40px;
+
+    > dl {
+      margin: 0;
+
+      dt,dd{
+        float: left;
+        margin: 0;
+      }
+
+      dt{
+        margin-right: 10px;
+        padding-left: 20px;
+        min-width: 130px;
+        text-align: right;
+        color: @viceText-FontColor;
+        white-space: nowrap;
+
+        &.default-FontColor {
+          color: @default-FontColor;
+        }
+
+        &.longest {
+          min-width: 210px;
+        }
+      }
+    }
+  }
+}
+
+//
+// --- 重置双色球 ray 20150821
+//
+.ar-data-box {
+
+    > h2 {
+        line-height: 1.8;
+        font-size: @small-FontSize !important;
+    }
+}
+
+//
+// --- 旧版public
+//
+@import "app/_public";
+
+//
+//--- 收银台
+//
+.s-casher-bd{
+    margin: 0 70px;
+
+    .form-control-label{
+        width: 220px;
+    }
+
+    .form-group{
+        padding-left: 230px;
+    }
+
+    .form-control-wrap{
+        width: 370px;
+    }
+}
+
+
+// 测试银行
+.bank-example{
+    background: url("@{images-url}example.jpg") no-repeat 0 3px;
+}
+.icon-example{
+    background: url("@{images-url}icon-example.png") no-repeat 0 0;
+}

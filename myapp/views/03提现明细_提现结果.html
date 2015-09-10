@@ -1,0 +1,54 @@
+{% extends "_layout/wrapper.html" %}
+{# content内容 #}
+{% block content %}
+
+	{# 菜单导航 #}
+	{% import "_components/navigator.html" as navigator %}
+	{{ navigator.current('nav3') }}
+
+	<ol class="breadcrumb fn-mb-10">
+		<li>
+			<a href="03提现明细.html">提现明细 <i class="icon-chevron-thin-right"></i></a>
+		</li>
+		<li>
+            余额提现到银行账户
+		</li>
+	</ol>
+
+	{# 步骤 #}
+	{{ Step.render('pass3', '提现信息', '提现信息确认', '提现结果') }}
+
+	<!-- 处理中 -->
+	{{ Notice.wait() }}
+
+	<!-- 结果 -->
+	<div class="notice-wrap success">
+		<div class="notice-box">
+			<span class="notice-img"></span>
+			<h3>提现申请已提交，等待银行处理</h3>
+			<p class="lh-24">具体到账时间以银行为准，您可在 <a href="03提现明细.html" class="link-standard" tabindex="1">提现记录</a> 中查看提现结果。<br />
+				如果银行信息填写错误，有可能导致提现失败，<br />
+				如有问题请联系客服：400-106-6698。
+			</p>
+			<a href="03提现明细.html" class="link-standard">查看提现明细</a>
+			<a href="01账户总览.html" class="link-standard link-border">返回账户总览</a>
+		</div>
+	</div>
+	<br/>
+	<!-- 失败 -->
+	<div class="notice-wrap error">
+		<div class="notice-box">
+			<span class="notice-img"></span>
+			<h3>
+				申请提现失败
+			</h3>
+			<p>
+				原因：网络异常
+			</p>
+			<a href="03提现明细_提现.html" class="link-standard" tabindex="1">重新提现</a>
+			<a href="01账户总览.html" class="link-standard link-border">返回账户总览</a>
+		</div>
+	</div>
+{% endblock %}
+
+

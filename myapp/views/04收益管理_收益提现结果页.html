@@ -1,0 +1,68 @@
+{% extends "_layout/wrapper.html" %}
+{# content内容 #}
+{% block content %}
+
+	{# 菜单导航 #}
+	{{ navigator.current('nav4') }}
+
+    <ol class="breadcrumb fn-mb-10">
+        <li>
+            <a href="01账户总览.html">账户总览 <i class="icon-chevron-thin-right"></i></a>
+        </li>
+        <li>
+            <a href="04收益管理.html#draw">收益提现  <i class="icon-chevron-thin-right"></i></a>
+        </li>
+        <li>
+            收益提现到银行卡
+        </li>
+    </ol>
+
+	{# 步骤 #}
+	{{ Step.render('pass3', '提现信息', '提现信息确认', '提现结果') }}
+
+	<!-- 处理中 -->
+	<div class="notice-wrap waiting">
+		<div class="notice-box">
+			<span class="notice-img"></span>
+			<h3>
+				处理中...
+			</h3>
+			<p>
+				请不要关闭浏览器，系统正在紧张处理中。
+			</p>
+		</div>
+	</div>
+	<br/>
+	<!-- 结果 -->
+	<div class="notice-wrap success">
+		<div class="notice-box">
+			<span class="notice-img"></span>
+			<h3>提现申请已提交，等待银行处理</h3>
+			<p class="lh-24">
+				具体到账时间以银行为准，您可在 <a href="04收益管理_收益提现.html" class="link-standard" tabindex="1">收益提现记录</a> 中查看提现结果。<br/>
+				如果银行信息填写错误，有可能导致提现失败，<br/>
+				如有问题请联系客服：400-106-6698。
+			</p>
+			<a href="04收益管理_收益提现.html" class="link-standard">查看收益提现记录</a>
+			<a href="01账户总览.html" class="link-standard link-border">返回账户总览</a>
+		</div>
+	</div>
+	<br/>
+	<!-- 失败 -->
+	<div class="notice-wrap error">
+		<div class="notice-box">
+			<span class="notice-img"></span>
+			<h3>
+				申请提现失败
+			</h3>
+			<p>
+				原因：网络异常
+			</p>
+			<a href="04收益管理_收益提现_收益提现1.html" class="link-standard" tabindex="1">重新提现</a>
+			<a href="01账户总览.html" class="link-standard link-border">返回账户总览</a>
+		</div>
+	</div>
+
+{% endblock %}
+
+

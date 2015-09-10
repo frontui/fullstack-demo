@@ -1,0 +1,132 @@
+{% extends "_layout/wrapper.html" %}
+
+{# content内容 #}
+{% block content %}
+
+	{# 菜单导航 #}
+	{{ navigator.current('nav5') }}
+
+	{# 面包屑导航 #}
+    <ol class="breadcrumb fn-mb-10">
+        <li>
+            <a href="06账户管理个人-未验证.html">账户管理 <i class="icon-chevron-thin-right"></i></a>
+        </li>
+        <li>
+            重置支付密码
+        </li>
+    </ol>
+    <!-- 第一次显示设置支付密码 -->
+    <ol class="breadcrumb fn-mb-10">
+        <li>
+            <a href="06账户管理个人-未验证.html">账户管理 <i class="icon-chevron-thin-right"></i></a>
+        </li>
+        <li>
+            设置支付密码
+        </li>
+    </ol>
+
+	{# 设置支付密码 #}
+	<div class="form-frame">
+		<div class="form-title">
+			填写信息
+		</div>
+		<div class="form-layer1">
+			<div class="form-layer2">
+				<form action="06账户管理个人_个人验证3.html" autocomplete="off">
+					{# 身份证号 #}
+					<div class="form-group">
+						<label class="form-control-label" for="idcard">
+							<span>身份证号</span>
+							<em>：</em>
+						</label>
+						<div class="form-control-wrap">
+							<input type="text" tabindex="1" class="form-control" id="idcard" >
+						</div>
+					</div>
+					{# 已绑定银行卡号 #}
+					<div class="form-group">
+						<label class="form-control-label" for="bankcard">
+							<span>银行卡号</span>
+							<em>：</em>
+						</label>
+						<div class="form-control-wrap">
+							{{ Form.bankcard('请输入尾号6558的银行卡号') }}
+						</div>
+					</div>
+					{# 支付密码 #}
+					<div class="form-group">
+						<label class="form-control-label" for="password">
+							<span>设置新的支付密码</span>
+							<em>：</em>
+						</label>
+						<div class="form-control-wrap">
+							{{ Form.password() }}
+						</div>
+					</div>
+					{# 新支付密码确认 #}
+					<div class="form-group">
+						<label class="form-control-label" for="repassword">
+							<span>新支付密码确认</span>
+							<em>：</em>
+						</label>
+						<div class="form-control-wrap">
+							{{ Form.password('repassword','repassword') }}
+						</div>
+					</div>
+					{# 手机号码 #}
+					<div class="form-group">
+						<label class="form-control-label" for="mobile">
+							<span>手机号码</span>
+							<em>：</em>
+						</label>
+						<div class="form-control-wrap">
+							{{ Form.mobile('', '135****5808', 'readonly') }}
+						</div>
+					</div>
+					{# 短信验证码 #}
+					<div class="form-group">
+						<label class="form-control-label" for="form-control-verify1">
+							<span>短信验证码</span>
+							<em>：</em>
+						</label>
+						<div class="form-control-wrap">
+							{{ Form.verify('form-control-verify1') }}
+							<!-- 已发送 -->
+							{{ Form.verify('form-control-verify1','49秒后再获取', 'disabled') }}
+						</div>
+					</div>
+					{# 按钮 #}
+					<div class="form-group">
+						{{ Form.defaultBtn('确定', 'button', 'j-submit') }}
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+
+	<!-- 绑定失败 -->
+	{{ Modal.normal('j-tips','提示', '<p class="fs-16 text-align-center">银行卡信息不能验证，请输入已绑定的银行卡信息！</p>', '<button type="button" data-dismiss="modal" class="btn primary">确定</button>') }}
+
+	<!-- 加载中 -->
+	{{ Modal.loading('j-modal-loading') }}
+
+{% endblock %}
+
+{% block jsPage %}
+	<script>
+		!(function($){
+
+			var init = function() {
+				$('#j-submit').on('click', function(){
+					// 调用绑定失败弹层
+					$('#j-tips').modal();
+				})
+
+				// 处理中弹层
+				//$('#j-modal-loading').modal()
+			};
+
+			$(document).ready(init);
+		})(jQuery);
+	</script>
+{% endblock %}

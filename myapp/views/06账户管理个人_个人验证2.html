@@ -1,0 +1,123 @@
+{% extends "_layout/wrapper.html" %}
+
+{# content内容 #}
+{% block content %}
+
+	{# 菜单导航 #}
+	{{ navigator.current('nav5') }}
+
+	{# 面包屑导航 #}
+	<ol class="breadcrumb fn-mb-10">
+		<li>
+			<a href="06账户管理个人.html">账户管理 <i class="icon-chevron-thin-right"></i></a>
+		</li>
+		<li>
+			个人验证
+		</li>
+	</ol>
+
+	{# 步骤 #}
+	{{ Step.render('pass2', '设置支付密码', '绑定银行卡', '验证结果') }}
+
+	{# 设置支付密码 #}
+	<div class="form-frame">
+		<div class="form-title">
+			填写信息
+		</div>
+		{# Alert 提示 #}
+		{{ Alert.loading('仅限持卡人本人操作，请如实填写以下信息用于实名身份认证。') }}
+
+		<div class="form-layer1">
+			<div class="form-layer2">
+				<form action="06账户管理个人_个人验证3.html" autocomplete="off">
+					{# 姓名 #}
+					<div class="form-group">
+						<label class="form-control-label" for="username">
+							<span>姓名</span>
+							<em>：</em>
+						</label>
+						<div class="form-control-wrap">
+							<input type="text" class="form-control" id="username" value="陈少峰" readonly="readonly">
+						</div>
+					</div>
+					{# 身份证号 #}
+					<div class="form-group">
+						<label class="form-control-label" for="idcard">
+							<span>身份证号</span>
+							<em>：</em>
+						</label>
+						<div class="form-control-wrap">
+							<input type="text" class="form-control" id="idcard" value="4000*********6656" readonly="readonly">
+						</div>
+					</div>
+					{# 银行卡号 #}
+					<div class="form-group">
+						<label class="form-control-label" for="bankcard">
+							<span>银行卡号</span>
+							<em>：</em>
+						</label>
+						<div class="form-control-wrap">
+                                <input id="bankcard" tabindex="1" placeholder="卡号是16-19位数字" type="text" class="form-control"/>
+						</div>
+					</div>
+					{# 开户行 #}
+					<div class="form-group" style="*z-index: 2">
+						<label class="form-control-label" for="bank">
+							<span>开户行</span>
+							<em>：</em>
+						</label>
+						<div class="form-control-wrap">
+                            {{ Form.banks2(type=1, tabindex=2) }}
+						</div>
+					</div>
+					{# 手机号码 #}
+					<div class="form-group">
+						<label class="form-control-label" for="mobile">
+							<span>手机号码</span>
+							<em>：</em>
+						</label>
+						<div class="form-control-wrap">
+							{{ Form.mobile('此卡在银行预留的手机号码', tabindex=3) }}
+						</div>
+					</div>
+					{# 验证码 #}
+					<div class="form-group">
+						<label class="form-control-label" for="form-control-verify1">
+							<span>验证码</span>
+							<em>：</em>
+						</label>
+						<div class="form-control-wrap">
+							{{ Form.verify('form-control-verify1', tabindex=4) }}
+							<!-- 已发送 -->
+							{{ Form.verify('form-control-verify1','49秒后再获取', 'disabled', tabindex=4) }}
+						</div>
+					</div>
+					<div class="form-group">
+						{{ Form.agreement(tabindex=5) }}
+					</div>
+					{# 按钮 #}
+					<div class="form-group">
+						{{ Form.defaultBtn('下一步', 'button' , 'j-submit', tabindex=5) }}
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+
+	<!-- 绑定失败 -->
+	{{ Modal.normal('j-tips','提示', '<p class="fs-16 text-align-center">银行卡信息或身份证信息不能验证，请重新输入银行卡信息或身份证信息。</p>', '<button type="button" data-dismiss="modal" class="btn primary">确定</button>') }}
+
+{% endblock %}
+
+{% block jsPage %}
+<script>
+	~(function($) {
+		var init = function() {
+			$('#j-submit').on('click', function() {
+				$('#j-tips').modal();
+			})
+		};
+		$(document).ready(init)
+	})(jQuery);
+</script>
+{% endblock %}

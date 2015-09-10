@@ -1,0 +1,118 @@
+{% extends "_layout/wrapper.html" %}
+{# content内容 #}
+{% block content %}
+
+	{# 菜单导航 #}
+	{{ navigator.current('nav3') }}
+
+	<ol class="breadcrumb fn-mb-10">
+		<li>
+			<a href="03提现明细.html">提现明细 <i class="icon-chevron-thin-right"></i></a>
+		</li>
+		<li>
+            余额提现到银行卡
+		</li>
+	</ol>
+
+
+
+	{# 步骤 #}
+	{{ Step.render('pass2', '提现信息', '提现信息确认', '提现结果') }}
+
+	{# 表单 #}
+	<div class="form-frame">
+		{# title #}
+		<div class="tables-title form-title">
+            余额提现到银行卡
+			<div class="table-title-btns">
+				<a href="javascript:history.go(-1)">返回 <i class="icon-chevron-thin-right"></i></a>
+			</div>
+		</div>
+		<div class="form-layer-gray-box">
+			<div class="form-layer1">
+				<div class="form-layer2">
+					{# 银行卡信息 #}
+					<div class="form-group">
+						<label class="form-control-label">
+							<span>银行卡信息</span>
+							<em>：</em>
+						</label>
+						<div class="form-control-wrap">
+							<div class="form-control-data">
+                                <span class="bank-icon icon-cmb" title="招商银行"></span>
+                                <span class="form-control-bank-card">招商银行&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;尾号1234</span>
+							</div>
+						</div>
+					</div>
+					{# 提现金额 #}
+					<div class="form-group">
+						<label class="form-control-label">
+							<span>提现金额</span>
+							<em>：</em>
+						</label>
+						<div class="form-control-wrap">
+							<div class="form-control-data">
+								<strong class="h3 warning-FontColor">14,000</strong>&nbsp;元
+							</div>
+						</div>
+					</div>
+
+				</div>
+			</div>
+		</div>
+		<div class="form-layer1">
+			<div class="form-layer2">
+				<form action="03提现明细_提现结果（个人）.html">
+					{# 支付手机号码 #}
+					<div class="form-group">
+						<label class="form-control-label" for="mobile">
+							<span>支付手机号码</span>
+							<em>：</em>
+						</label>
+
+						<div class="form-control-wrap">
+							<input type="text" class="form-control" disabled="disabled" id="mobile" value="135****8886" readonly="readonly">
+						</div>
+					</div>
+					{# 验证码 #}
+					<div class="form-group">
+						<label class="form-control-label" for="verify">
+							<span>验证码</span>
+							<em>：</em>
+						</label>
+
+						<!-- 活动 -->
+						{{ Form.verify('verify') }}
+						<!-- 禁止 -->
+						{{ Form.verify('verify', '59秒后再次获取', 'disabled') }}
+					</div>
+
+					{# 支付密码 #}
+					<div class="form-group">
+						<label class="form-control-label" for="password">
+							<span>支付密码</span>
+							<em>：</em>
+						</label>
+						<div class="form-control-wrap">
+							<input type="password" tabindex="2" class="form-control" id="password">
+							<a class="form-control-tools-link">忘记密码?</a>
+						</div>
+					</div>
+
+					{# 下一步 #}
+					<div class="form-group">
+						<div class="form-control-wrap text-align-left plural-btns margin-top-20px">
+							<button type="submit" class="btn primary" tabindex="3">确认提现</button>
+							<a href="javascript:history.go(-1)" class="btn links" tabindex="4">返回修改</a>
+						</div>
+					</div>
+
+				</form>
+			</div>
+		</div>
+	</div>
+
+
+{% endblock %}
+
+

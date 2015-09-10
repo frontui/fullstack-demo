@@ -1,0 +1,241 @@
+{% extends "_layout/wrapper.html" %}
+{# content内容 #}
+{% block content %}
+
+	{# 菜单导航 #}
+	{{ navigator.current('nav1') }}
+
+	<ol class="breadcrumb fn-mb-10">
+		<li>
+			<a href="01账户总览.html">账户总览 <i class="icon-chevron-thin-right"></i></a>
+		</li>
+		<li>
+			收支明细
+		</li>
+	</ol>
+
+	<div class="tables-title heading-FontColor fn-mb-10">
+		收支明细
+		<div class="table-title-btns">
+			<a href="01账户总览.html">返回 <i class="icon-chevron-thin-right"></i></a>
+		</div>
+	</div>
+
+	<!-- 搜索过滤 -->
+	{{ Filter.render('流水号') }}
+
+	<!-- 数据统计 -->
+	<div class="data-count-wrap count-wrap-btline fn-mb-20">
+		<div>
+			<ul class="date-count-ul">
+				<li class="count-title">
+					<h4>当前数据统计</h4>
+					<span class="arrows-shadow"></span>
+					<span class="arrows"></span>
+				</li>
+				<li>
+					<h5>
+						<span>总收入（元）</span>
+						共&nbsp;539&nbsp;笔
+					</h5>
+					<h2>
+						103,000.00
+					</h2>
+				</li>
+				<li>
+					<h5>
+						<span>总支出（元）</span>
+						共&nbsp;208&nbsp;笔
+					</h5>
+					<h2>
+						3,000.00
+					</h2>
+				</li>
+			</ul>
+		</div>
+	</div>
+
+
+	{# 下载账单 #}
+	{{ download.render() }}
+<table class="table inverse">
+    <colgroup>
+        <col/>
+        <col/>
+        <col style="width:70px"/>
+        <col/>
+        <col/>
+        <col style="width:78px"/>
+    </colgroup>
+    <thead>
+    <tr>
+        <th>创建时间</th>
+        <th>流水号</th>
+        <th>业务类型</th>
+        <th>状态</th>
+        <th>金额（元）</th>
+        <th class="text-align-left th-ctrls">操作</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>2015.05.20  16:56</td>
+        <td>
+            <p class="text-nowrap">TJZT20150520000001</p>
+        </td>
+        <td>充值</td>
+        <td>成功</td>
+        <td class="success-FontColor2">+1,000.00</td>
+        <td class="text-align-left">
+            <div class="table-ctrls">
+                详情
+                <span class="caret-down"></span>
+                <div class="ctrls">
+                    <a href="01账户总览_收支明细_充值详情.html">详情</a>
+                    <a target="_blank" href="06公共页面-电子凭证.html">打印</a>
+                </div>
+            </div>
+        </td>
+    </tr>
+    <tr>
+        <td>2015.05.20  16:56</td>
+        <td>
+            <p class="text-nowrap">TJZT20150520000002</p>
+        </td>
+        <td>提现</td>
+        <td>成功</td>
+        <td class="warning-FontColor">-1,000.00</td>
+        <td class="text-align-left">
+            <div class="table-ctrls">
+                详情
+                <span class="caret-down"></span>
+                <div class="ctrls">
+                    <a href="01账户总览_收支明细_提现详情.html">详情</a>
+                    <a target="_blank" href="06公共页面-电子凭证.html">打印</a>
+                </div>
+            </div>
+        </td>
+    </tr>
+    <tr>
+        <td>2015.05.20  16:56</td>
+        <td>
+            <p class="text-nowrap">TJZT20150520000003</p>
+        </td>
+        <td>收款</td>
+        <td>成功</td>
+        <td class="success-FontColor2">+1,000.00</td>
+        <td class="text-align-left">
+            <div class="table-ctrls">
+                详情
+                <span class="caret-down"></span>
+                <div class="ctrls">
+                    <a href="01账户总览_收支明细_收款详情（直付）.html">详情</a>
+                    <a target="_blank" href="06公共页面-电子凭证.html">打印</a>
+                </div>
+            </div>
+        </td>
+    </tr>
+    <tr>
+        <td>2015.05.20  16:56</td>
+        <td>
+            <p class="text-nowrap">TJZT20150520000004</p>
+        </td>
+        <td>收款</td>
+        <td>成功</td>
+        <td class="success-FontColor2">+2,000.00</td>
+        <td class="text-align-left">
+            <div class="table-ctrls">
+                详情
+                <span class="caret-down"></span>
+                <div class="ctrls">
+                    <a href="01账户总览_收支明细_收款详情（担保）.html">详情</a>
+                    <a target="_blank" href="06公共页面-电子凭证.html">打印</a>
+                </div>
+            </div>
+        </td>
+    </tr>
+    <tr>
+        <td>2015.05.20  16:56</td>
+        <td>
+            <p class="text-nowrap">TJZT20150520000005</p>
+        </td>
+        <td>付款</td>
+        <td>成功</td>
+        <td class="warning-FontColor">-2,000.00</td>
+        <td class="text-align-left">
+            <div class="table-ctrls">
+                详情
+                <span class="caret-down"></span>
+                <div class="ctrls">
+                    <a href="01账户总览_收支明细_付款详情（直付）.html">详情</a>
+                    <a target="_blank" href="06公共页面-电子凭证.html">打印</a>
+                </div>
+            </div>
+        </td>
+    </tr>
+    <tr>
+        <td>2015.05.20  16:56</td>
+        <td>
+            <p class="text-nowrap">TJZT20150520000005</p>
+        </td>
+        <td>付款</td>
+        <td>成功</td>
+        <td class="warning-FontColor">-2,000.00</td>
+        <td class="text-align-left">
+            <div class="table-ctrls">
+                详情
+                <span class="caret-down"></span>
+                <div class="ctrls">
+                    <a href="01账户总览_收支明细_付款详情（担保-含清算）.html">详情</a>
+                    <a target="_blank" href="06公共页面-电子凭证.html">打印</a>
+                </div>
+            </div>
+        </td>
+    </tr>
+    <tr>
+        <td>2015.05.20  16:56</td>
+        <td>
+            <p class="text-nowrap">TJZT20150520000005</p>
+        </td>
+        <td>付款</td>
+        <td>成功</td>
+        <td class="warning-FontColor">-2,000.00</td>
+        <td class="text-align-left">
+            <div class="table-ctrls">
+                详情
+                <span class="caret-down"></span>
+                <div class="ctrls">
+                    <a href="01账户总览_收支明细_付款详情（担保-不含清算）.html">详情</a>
+                    <a target="_blank" href="06公共页面-电子凭证.html">打印</a>
+                </div>
+            </div>
+        </td>
+    </tr>
+    <tr>
+        <td>2015.05.20  16:56</td>
+        <td>
+            <p class="text-nowrap">TJZT20150520000006</p>
+        </td>
+        <td>充值</td>
+        <td>失败</td>
+        <td class="success-FontColor2">+400.00</td>
+        <td class="text-align-left">
+            <a href="01账户总览_收支明细_充值详情.html" class="link-standard">详情</a>
+        </td>
+    </tr>
+    <!-- 暂无记录 -->
+    <tr>
+        <td colspan="6" class="empty">
+            &nbsp;
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+	{# 分页 #}
+	{% import "_components/pagination.html" as Pager %}
+	{{ Pager.render() }}
+
+{% endblock %}
+
+

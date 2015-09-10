@@ -1,0 +1,165 @@
+{% extends "_layout/wrapper.html" %}
+{# content内容 #}
+{% block content %}
+
+	{# 菜单导航 #}
+	{{ navigator.current('nav4') }}
+
+    <ol class="breadcrumb fn-mb-10">
+        <li>
+            <a href="01账户总览.html">账户总览 <i class="icon-chevron-thin-right"></i></a>
+        </li>
+        <li>
+            <a href="04收益管理_收益提现.html">收益提现  <i class="icon-chevron-thin-right"></i></a>
+        </li>
+        <li>
+            收益提现到银行卡
+        </li>
+    </ol>
+
+	{# 步骤 #}
+	{{ Step.render('pass1', '提现信息', '提现信息确认', '提现结果') }}
+
+	{# 表单 #}
+	<div class="form-frame">
+		{# title #}
+		<div class="tables-title heading-FontColor form-title">
+            收益提现到银行卡
+			<div class="table-title-btns">
+				<a href="javascript:history.go(-1)">返回 <i class="icon-chevron-thin-right"></i></a>
+			</div>
+		</div>
+		<div class="form-layer1">
+			<div class="form-layer2">
+				<form action="04收益管理_收益提现_收益提现2.html">
+					{# 您的账户 #}
+					<div class="form-group">
+						<label class="form-control-label">
+							<span>您的账户</span>
+							<em>：</em>
+						</label>
+
+						<div class="form-control-wrap">
+							<div class="form-control-data"><span>XXX平台</span></div>
+						</div>
+					</div>
+					{# 账户余额 #}
+					<!--<div class="form-group">-->
+						<!--<label class="form-control-label">-->
+							<!--<span>账户余额</span>-->
+							<!--<em>：</em>-->
+						<!--</label>-->
+
+						<!--<div class="form-control-wrap">-->
+							<!--<div class="form-control-data"><span>6,814,000 元</span></div>-->
+						<!--</div>-->
+					<!--</div>-->
+
+					{# 可提现收益 #}
+					<div class="form-group">
+						<label class="form-control-label">
+							<span>可提现收益</span>
+							<em>：</em>
+						</label>
+						<div class="form-control-wrap">
+							<div class="form-control-data">
+								<strong class="h3 warning-FontColor">14,000</strong>&nbsp;元
+							</div>
+						</div>
+					</div>
+
+					{# 请输入提现金额 #}
+					<div class="form-group">
+						<label class="form-control-label" for="form-control-withdrawFull">
+							<span>
+								请输入提现金额
+							</span>
+							<em>
+								：
+							</em>
+						</label>
+						<div class="form-control-wrap">
+							<div class="form-control-withdrawFull">
+								<input type="text" class="form-control" tabindex="1" id="form-control-withdrawFull">
+								<button type="button" id="j-pick" class="btn form-control-withdrawFull-btn" tabindex="1">全部提取</button>
+								<input type="hidden" name="mybill" value="14000" />
+							</div>
+						</div>
+					</div>
+
+					{# 提现到 #}
+					<div class="form-group">
+						<label class="form-control-label">
+							<span>提现到</span>
+							<em>：</em>
+						</label>
+						<div class="form-control-wrap">
+							<div class="form-control-data">
+                                <span class="bank-icon icon-cmb" title="招商银行"></span>
+                                <span class="form-control-bank-card">招商银行&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;尾号1234</span>
+							</div>
+						</div>
+					</div>
+
+					{# 提现账户开户省市 #}
+					<div class="form-group">
+						<label for="bank" class="form-control-label">
+							<span>
+								开户省市
+							</span>
+							<em>
+								：
+							</em>
+						</label>
+						<div class="form-control-wrap">
+							{{ Form.city() }}
+						</div>
+					</div>
+
+					{# 提现账户开户支行 #}
+					<div class="form-group">
+						<label for="bank" class="form-control-label">
+							<span>
+								开户支行
+							</span>
+							<em>
+								：
+							</em>
+						</label>
+						<div class="form-control-wrap">
+							{{ Form.banks(tabindex=4) }}
+						</div>
+					</div>
+
+					{# 下一步 #}
+					<div class="form-group">
+						{{ Form.doubleBtn(tabindex=5) }}
+					</div>
+
+				</form>
+			</div>
+		</div>
+	</div>
+
+
+{% endblock %}
+
+{% block jsPage %}
+<script>
+	~(function( $ ) {
+		var pageInit = function() {
+			// 全部提取
+			$('#j-pick').on('click', function() {
+				var $that = $(this);
+				$that.prev(':input').val(function() {
+					return $that.next(':input').val();
+				})
+			})
+		};
+
+		$(document).ready(pageInit)
+	})( jQuery );
+</script>
+{% endblock %}
+
+

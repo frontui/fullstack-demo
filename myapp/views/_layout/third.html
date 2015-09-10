@@ -1,0 +1,141 @@
+{% extends "_layout/layout.html" %}
+
+{# 菜单导航 #}
+{% import "_components/navigator.html" as navigator %}
+
+{# 提示 #}
+{% import "_components/alert.html" as Alert %}
+
+{# 步骤 #}
+{% import "_components/step.html" as Step %}
+
+{# 表单 #}
+{% import "_components/form.html" as Form %}
+
+{# 过滤 #}
+{% import "_components/filter.html" as Filter %}
+
+{# 下载 #}
+{% import "_components/download.html" as download %}
+
+{# 分页 #}
+{% import "_components/pagination.html" as Pager %}
+
+{# 提示 #}
+{% import "_components/notice.html" as Notice %}
+
+{# 我的银行 #}
+{% import "_components/myBanks.html" as MyBanks %}
+
+{# 弹框 #}
+{% import "_components/modal.html" as Modal %}
+
+{# 双色球 #}
+{% import "_components/amountRemind.html" as Amount %}
+
+
+{% block globalCss %}
+<link rel="stylesheet" href="{{static}}/css/main.css?v={{ version }}">
+<link rel="stylesheet" href="{{static}}/thirdPart/css/{{ theme }}?v={{ version }}">
+
+<script src="{{static}}/thirdPart/js/iframeProxy.js"></script>
+{% endblock %}
+
+
+{# 通用布局 #}
+{% block body %}
+<div class="main-frm main-frm2">
+  <header class="main-frm-header">
+    <div class="frm-header-inner">
+      <div class="frm-logo"><img src="{{static}}/thirdPart/images/logo-ex.png"></div>
+
+    </div>
+  </header>
+  <main class="frame-wrap-bg">
+    <div class="frame-wrap">
+      {% if sidebar%}
+      <!-- 侧边导航 -->
+      <aside class="frame-sidebar">
+        <div class="frame-sidebar-wrap">
+          <div class="frame-profile">
+            <div class="frame-profile-avatar">
+              <span class="frame-profile-mask"></span>
+              <img src="{{static}}/thirdPart/images/user-head.jpg" height="160" width="160" alt="">
+            </div>
+            <div class="frame-profile-info">jinhong.shao@frontpay.cn，您好！</div>
+          </div>
+          <div class="frame-menu">
+            <h2>{{ webConfig.logo }}</h2>
+            <ul class="frame-menu-list">
+              <li>
+                <a href="#" class="active">
+                  <i class="fm-icon-account"></i>
+                  <span>账户总览</span>
+                  <i class="fm-icon-arrow"></i>
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                  <i class="fm-icon-money"></i>
+                  <span>交易明细</span>
+                  <i class="fm-icon-arrow"></i>
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                  <i class="fm-icon-exchange"></i>
+                  <span>提现明细</span>
+                  <i class="fm-icon-arrow"></i>
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                  <i class="fm-icon-setting"></i>
+                  <span>账户管理</span>
+                  <i class="fm-icon-arrow"></i>
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                  <i class="fm-icon-help"></i>
+                  <span>服务台</span>
+                  <i class="fm-icon-arrow"></i>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </aside>
+      <!-- 主内容区 -->
+      <div class="frame-main" id="J-frame-main">
+        {% block content %}
+        {% endblock %}
+      </div>
+      <!-- /主内容区 -->
+      {% else %}
+        {% block content %}
+        {% endblock %}
+      {% endif %}
+    </div>
+  </main>
+
+  <footer class="main-footer">
+    <div class="main-ft-inner">
+      <div class="main-ft-copyright">
+        Powered by： <a href="#"><img src="{{static}}/thirdPart/images/logo-qt.png"></a>
+      </div>
+      <div class="foot-line"></div>
+      <div class="main-ft-bank">合作机构：<span class="bank-bg bank-cmb"></span></div>
+      <div class="main-ft-helper">
+        <ul>
+          <li class="has-r-line">
+            <i class="icon-msg"></i>
+            <a href="##">帮助中心</a>
+          </li>
+          <li class="tel"><i class="icon-telphone"></i>客服热线<b>400-106-6998</b></li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+</div>
+{% endblock %}

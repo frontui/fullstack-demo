@@ -1,0 +1,36 @@
+{% extends "_layout/casher-frame.html" %}
+
+{# content #}
+{% block content %}
+
+    <div class="notice-wrap success">
+        <div class="notice-box">
+            <span class="notice-img"></span>
+            <h3>你已成功付款&nbsp;XX,XXX.XX&nbsp;元</h3>
+            <p>5&nbsp;秒后返回上级页面</p>
+            <a href="###" class="link-standard">查看余额</a>
+            <a href="###" class="link-standard link-border">我要充值</a>
+        </div>
+    </div>
+    <div class="notice-wrap error">
+        <div class="notice-box">
+            <span class="notice-img"></span>
+            <h3>支付失败</h3>
+            <p>原因</p>
+            <ul class="notice-reasons-ul">
+                <li>
+                    账户余额不足或超出发卡单笔支付限额
+                </li>
+                <li>
+                    网络异常
+                </li>
+            </ul>
+            <a href="###" class="link-standard">重新支付</a>
+            <a href="01账户总览.html" class="link-standard link-border">返回账户总览</a>
+        </div>
+    </div>
+    {{ Notice.wait() }}
+
+{% endblock %}
+
+

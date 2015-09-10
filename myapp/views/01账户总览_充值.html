@@ -1,0 +1,61 @@
+{% extends "_layout/wrapper.html" %}
+{# content内容 #}
+{% block content %}
+
+	{# 菜单导航 #}
+	{{ navigator.current('nav1') }}
+
+	<ol class="breadcrumb fn-mb-10">
+		<li>
+			<a href="01账户总览.html">账户总览 <i class="icon-chevron-thin-right"></i></a>
+		</li>
+		<li>
+			账户充值
+		</li>
+	</ol>
+
+	<div class="tables-title heading-FontColor fn-mb-10">
+		账户充值
+		<div class="table-title-btns">
+			<a href="01账户总览.html">返回 <i class="icon-chevron-thin-right"></i></a>
+		</div>
+	</div>
+
+	{# 提示 #}
+	{{ Alert.loading(text='最低充值金额1000元，充值成功后可立即用于交易', mb='fn-mb-30') }}
+
+	<form action="##" class="form-frame form-recharge">
+		<fieldset>
+			<legend>充值享收益</legend>
+			<div class="recharge-hd">
+				当前年化收益率 <b class="warning-FontColor">4.50%</b>
+			</div>
+			<div class="form-group">
+				<input type="text" placeholder="充值金额不能小于1000" tabindex="1" class="form-control"/>
+				<span>元</span>
+			</div>
+            <div class="form-group has-error"><!--出错状态的样式是 class="form-group has-error"-->
+                <input type="text" placeholder="" tabindex="1" class="form-control" value="0.1"/>
+                <span>元</span>
+
+                <!-- 在用户输入的时候就开始校验 -->
+                <!-- 异常情况：充值金额有小数，提示：请输入整数 -->
+                <div class="form-notice">
+                    <i></i>
+                    请输入整数
+                </div>
+
+                <!-- 异常情况：充值金额低于1000的提示：充值金额不低于1000元 -->
+                <div class="form-notice">
+                    <i></i>
+                    充值金额不能小于1000
+                </div>
+            </div>
+			<div class="form-btns">
+				<a target="_blank" tabindex="2" href="06公共页面-收银台-收银台（充值）.html" class="btn primary">下一步</a>
+			</div>
+		</fieldset>
+	</form>
+{% endblock %}
+
+

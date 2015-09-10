@@ -1,0 +1,10 @@
+{
+  "name": "lang-js-number",
+  "version": "0.1.0",
+  "description": "format a number",
+  "repo": "lang-js/number",
+  "main": "index.js",
+  "author": "Cameron Bytheway <bytheway.cameron@gmail.com>",
+  "scripts": ["index.js"],
+  "license": "MIT"
+}

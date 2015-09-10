@@ -1,0 +1,147 @@
+{% extends "_layout/wrapper.html" %}
+{# content内容 #}
+{% block content %}
+
+	{# 菜单导航 #}
+	{{ navigator.current('nav4') }}
+
+    <ol class="breadcrumb fn-mb-10">
+        <li>
+            <a href="01账户总览.html">账户总览  <i class="icon-chevron-thin-right"></i></a>
+        </li>
+        <li>
+            收益记录
+        </li>
+    </ol>
+
+
+	{# tab #}
+	<div class="tabs-wrap type1">
+		<ul class="tabs">
+			<li class="active">
+				<a href="04收益管理.html" class="tabs-btn tab-disabled">
+					收益记录
+				</a>
+			</li>
+			<li>
+				<a href="04收益管理_收益提现.html" class="tabs-btn tab-disabled">
+					收益提现
+				</a>
+			</li>
+		</ul>
+	</div>
+
+	{# tab #}
+	<div class="tabs-content">
+		{# 收益记录 #}
+		<div class="tabs-panel active" id="index">
+			<div id="j-home-switcher" data-toggle="switcher" data-item=".filter-check-item" data-keep="true" class="form-frame-filter fn-mt-15 fn-mb-20 fn-pl-10">
+				<span class="heading-FontColor fs-12">时间：</span>
+				<a href="#3m" class="filter-check-item active">最近三个月</a>
+				<a href="#b3m" class="filter-check-item">三个月前</a>
+			</div>
+			{# 数据统计 #}
+			<div class="data-count-wrap count-wrap-btline data-count-wrap-style2 fn-mb-10">
+				<div>
+					<ul class="date-count-ul">
+						<li class="count-title">
+							<h4>当前数据统计</h4>
+							<span class="arrows-shadow"></span>
+							<span class="arrows"></span>
+						</li>
+						<li>
+							<h5 class="default-FontColor">
+								金额（元）
+							</h5>
+							<h2>
+								103,000.00
+							</h2>
+						</li>
+					</ul>
+				</div>
+			</div>
+
+			{# 记录 #}
+			<table class="table inverse">
+				<thead>
+				<tr>
+					<th>收益所属日期</th>
+					<th>
+						本金（元）
+						<div class="tooltips-icon" style="vertical-align: 0">
+							i
+							<div class="tooltips">
+								自动投资本金
+								<span class="tips-arrow-border"></span>
+								<span class="tips-arrow"></span>
+							</div>
+						</div>
+					</th>
+					<th>年化收益率</th>
+					<th>收益（元）</th>
+				</tr>
+				</thead>
+				<tbody>
+				<tr>
+					<td>2015.05.25</td>
+					<td>
+						1,100,000.00
+					</td>
+					<td>4.18%</td>
+					<td>1,000.00</td>
+				</tr>
+				<tr>
+					<td>2015.05.22</td>
+					<td>
+						1,030,000.00
+					</td>
+					<td>4.20%</td>
+					<td>32,156.00</td>
+				</tr>
+				<tr>
+					<td>2015.05.20</td>
+					<td>
+						1,030,000.00
+					</td>
+					<td>4.20%</td>
+					<td>51,006.00</td>
+				</tr>
+				</tbody>
+			</table>
+
+			{# 分页 #}
+			{{ Pager.render() }}
+		</div>
+
+
+	</div>
+{% endblock %}
+
+{% block jsPage %}
+<script>
+	/*# start: 技术兄弟套模板后请删除，只做test api说明 #*/
+	/* 技术api接口 */
+	//收益记录时间切换
+	function fnHomePickTimer(e){
+		console.log('收益记录:'+$(e.target).html())
+	}
+
+	/*#   end: 技术兄弟套模板后请删除，只做test api说明 #*/
+
+
+	~(function($) {
+
+		var init = function() {
+
+			// 收益记录时间切换
+			$('#j-home-switcher').on('select.ui.switcher', fnHomePickTimer)
+			// 模块化对象请用下面语句替换
+			//$('#j-home-switcher').on('select.ui.switcher', $.proxy(QueryHelper.fnHomePickTimer, QueryHelper))
+
+		};
+
+		$(document).ready(init);
+	})(jQuery);
+</script>
+{% endblock %}
+

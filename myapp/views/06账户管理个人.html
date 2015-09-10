@@ -1,0 +1,153 @@
+{% extends "_layout/wrapper.html" %}
+{# content内容 #}
+{% block content %}
+
+	{# 菜单导航 #}
+	{{ navigator.current('nav5') }}
+
+	{# 账户资料 #}
+	<div class="tables-title heading-FontColor title-border">
+		账户资料
+	</div>
+	<div class="data-count-wrap fn-mb-10">
+		<ul class="info-list">
+			<li>
+				<dl>
+					<dt>网站ID：</dt>
+					<dd>liang1126</dd>
+				</dl>
+			</li>
+			<li>
+				<dl>
+					<dt>手机号：</dt>
+					<dd>135****9625</dd>
+				</dl>
+			</li>
+			<li>
+				<dl>
+					<dt>姓名：</dt>
+					<dd>陈少峰</dd>
+				</dl>
+			</li>
+			<li>
+				<dl>
+					<dt>身份证：</dt>
+					<dd>4366*********8250</dd>
+				</dl>
+			</li>
+		</ul>
+	</div>
+
+	{# 银行卡管理 #}
+	<div class="tables-title heading-FontColor title-border">
+		银行卡管理
+	</div>
+	<div class="data-count-wrap fn-mb-10">
+		{{ MyBanks.render(1) }}
+	</div>
+
+	{# 安全管理 #}
+	<div class="tables-title heading-FontColor title-border">
+		安全管理
+	</div>
+	<div class="data-count-wrap">
+		<div class="password-status-wrap fn-pl-10 fn-pr-10">
+            <table class="password-status-table">
+                <colgroup>
+                    <col style="width: 78px;">
+                    <col style="width: 92px;">
+                    <col>
+                    <col style="width: 80px;">
+                </colgroup>
+                <tbody>
+                <!--<tr>-->
+                <!--<td>-->
+                <!--<strong>登录密码</strong>-->
+                <!--</td>-->
+                <!--<td>-->
+                <!--<span class="password-status-label done">-->
+                <!--<b></b>-->
+                <!--已设置-->
+                <!--</span>-->
+                <!--</td>-->
+                <!--<td class="viceText-FontColor">-->
+                <!--上次登录时间：2015年05月21日 17：08：30-->
+                <!--</td>-->
+                <!--<td class="text-align-right">-->
+                <!--<a href="###" class="link-standard">修改</a>-->
+                <!--</td>-->
+                <!--</tr>-->
+                <tr>
+                    <td>
+                        <strong>支付密码</strong>
+                    </td>
+                    <td>
+							<span class="password-status-label done">
+								<b></b>
+								已设置
+							</span>
+                    </td>
+                    <td class="viceText-FontColor">
+                        用于付款或修改账户信息时，保护账户资金安全
+                    </td>
+                    <td class="text-align-right">
+                        <a href="06账户管理个人_重置支付密码1.html" class="link-standard">重置</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <strong>支付密码</strong>
+                    </td>
+                    <td>
+							<span class="password-status-label notdone">
+								<b></b>
+								未设置
+							</span>
+                    </td>
+                    <td class="viceText-FontColor">
+                        用于付款或修改账户信息时，保护账户资金安全
+                    </td>
+                    <td class="text-align-right">
+                        <a href="06账户管理个人_重置支付密码1.html" class="link-standard">设置</a>
+                    </td>
+                </tr>
+                <!--<tr>-->
+                <!--<td>-->
+                <!--<strong>支付手机号码</strong>-->
+                <!--</td>-->
+                <!--<td>-->
+                <!--<span class="password-status-label notdone">-->
+                <!--<b></b>-->
+                <!--未设置-->
+                <!--</span>-->
+                <!--</td>-->
+                <!--<td class="viceText-FontColor">-->
+                <!--您未绑定手机-->
+                <!--</td>-->
+                <!--<td class="text-align-right">-->
+                <!--<a href="###" class="link-standard">设置</a>-->
+                <!--</td>-->
+                <!--</tr>-->
+                <tr>
+                    <td>
+                        <strong>绑定手机</strong>
+                    </td>
+                    <td>
+							<span class="password-status-label done">
+								<b></b>
+								已设置
+							</span>
+                    </td>
+                    <td class="viceText-FontColor">
+                        您绑定的手机：133****1234
+                    </td>
+                    <td class="text-align-right">
+                        &nbsp;
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+		</div>
+	</div>
+
+{% endblock %}

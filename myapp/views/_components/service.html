@@ -1,0 +1,597 @@
+{% macro render() %}
+<!-- 服务台 -->
+<div class="service-desk">
+    <div class="service-info clearfix">
+        <dl class="service-info-bd">
+            <dt>
+                <i class="service-icon service-sound"></i>
+            <h2>帮助中心</h2>
+            <p>如您在使用过程中遇到问题，可通过以下常见问题快速找到答案！</p>
+            </dt>
+            <dd>
+                <p><i class="service-icon service-tel"></i><tel>400-106-6698</tel></p>
+                <p><i class="service-icon service-mail"></i><a class="link-standard" href="mailto:frontpay_service@frontpay.cn">frontpay_service@frontpay.cn</a></p>
+            </dd>
+        </dl>
+    </div>
+    <div class="title">1. 什么是XX宝？</div>
+    <div class="text-box">
+        <div class="text-arrow"></div>
+        xx宝是XX公司携手招商银行共同打造的一款支付交易及余额增值产品，面向平台用户7*24小时提供全程在线操作、高效跨行身份验证、免费跨行结算、余额享受增值权益等定制化产品及服务，由钱途互联负责运营。
+    </div>
+    <div class="title">2. XX宝的优势？</div>
+    <div class="text-box">
+        <div class="text-arrow"></div>
+        <span class="ok">免费：</span>使用XX宝，充值、支付、提现等所有交易免费结算，再也不用支付高昂结算费用。<br>
+        <span class="ok">安全：</span>使用XX宝，招商银行提供服务，交易资金安全无忧。<br>
+        <span class="ok">便捷：</span>支持使用多家银行账户在线跨行交易，提供强大的电子交易凭证功能满足公司账务需求。<br>
+        <span class="ok">增值：</span>XX宝内余额可享稳健收益。<br>
+        <span class="ok">其他：</span>平台可根据业务需求，推出其他用户权益。
+
+    </div>
+    <div class="title">3.企业用户如何开通XX宝？ </div>
+    <div class="text-box">
+        <div class="text-arrow"></div>
+        <ul class="step1 clearfix">
+            <li class="a">登录XX公司的平台<br>（未在平台注册的用户需先进行注册）</li>
+            <li class="b">在XX公司的平台<br>上进行实名验证</li>
+            <li class="c">激活XX宝</li>
+            <li class="d">选择企业用户</li>
+            <li class="b">设置支付密码和<br>支付手机号码</li>
+            <li class="a"></li>
+            <li class="b lh40">开通XX宝</li>
+            <li class="c" style="line-height:50px;padding-top:5px;">完成验证</li>
+            <li class="e">登录网上银行<br>充值小额验证金</li>
+            <li class="b lh40">企业用户安全验证</li>
+            <li class="other">（为加强企业账户的安全性，<br>须向您的XX宝充值小额验证金<br>审核通过后，此笔资金可用于支付和提现）</li>
+        </ul>
+
+    </div>
+    <div class="title">4.个人用户如何开通XX宝？</div>
+    <div class="text-box">
+        <div class="text-arrow"></div>
+        <ul class="step1 clearfix">
+            <li class="a">登录XX公司的平台<br>（未在平台注册的用户需先进行注册）</li>
+            <li class="b">在XX公司的平台<br>上进行实名验证</li>
+            <li class="c">激活XX宝</li>
+            <li class="d">选择个人用户</li>
+            <li class="b" style="line-height:30px;">设置支付密码</li>
+            <li class="a"></li>
+            <li class="b lh40">开通XX宝</li>
+            <li class="c" style="line-height:60px">完成验证</li>
+            <li class="d" style="line-height:16px;">填写手机号码<br>并获取和填写<br>手机验证码</li>
+            <li class="b lh40">绑定个人银行卡</li>
+            <li class="other" style="right:-10px;">（个人用户填写正确的<br>银行卡开户行信息、银行卡号）</li>
+        </ul>
+
+    </div>
+    <div class="title">5.我是个人用户，能否绑定多张银行卡？</div>
+    <div class="text-box">
+        <div class="text-arrow"></div>
+        个人用户支持绑定多张银行卡。<br>
+        绑卡流程如下：
+        <div class="img"><img src="./static/images/img-3.jpg"></div>
+    </div>
+    <div class="title">6.我是企业用户，如何重置支付密码？</div>
+    <div class="text-box">
+        <div class="text-arrow"></div>
+        1）登录XX宝，点击【账户管理】→【安全管理】，进入重置支付密码界面。<br>
+        2）填写并确认新的支付密码，点击【下一步】，进入企业身份安全验证界面。
+        <div class="img"><img src="./static/images/img-4.jpg"></div>
+        3）核实企业用户的身份真实性。<br>
+        为确保用户信息安全，企业用户可通过名下的有效银行账户向其XX宝，打入一笔小额验证金（0.1元）。
+        <div class="img"><img src="./static/images/img-5.jpg"></div>
+        4）点击“支付验证”跳转到收银台，选择银行并登录网上银行充值。<br>
+        5）验证金充值完毕后，返回重置支付密码的验证结果。<br>
+        系统将在24小时内返回验证结果，并短信通知。
+        <div class="img"><img src="./static/images/img-6.jpg"></div>
+        6）如验证成功，将提示密码重置成功，用户可以使用新的支付密码进行操作。
+        <div class="img"><img src="./static/images/img-7.jpg"></div>
+    </div>
+    <div class="title">7.我是个人用户，如何修改或重置支付密码？</div>
+    <div class="text-box">
+        <div class="text-arrow"></div>
+        1）登录XX宝，点击【账户管理】→【安全管理】，进入重置支付密码界面。<br>
+        2）正确填写个人的身份信息，填写并确认新的支付密码，获取并填写手机验证码，点击【提交】。
+        <div class="img"><img src="./static/images/img-8.jpg"></div>
+        3）系统将实时返回修改支付密码的结果。
+        <div class="img"><img src="./static/images/img-9.jpg"></div>
+    </div>
+
+
+    <div class="title">8.XX宝如何充值?</div>
+    <div class="text-box">
+        <div class="text-arrow"></div>
+        登录XX宝，在“账户总览”页面点击“充值”→进入“充值”页面，填写充值金额→进入收银台页面，<br>
+        可以选择储蓄卡进行充值→返回充值结果，充值完成。
+    </div>
+    <div class="title" id="title9">9.企业用户充值是否需要开通网银？</div>
+    <div class="text-box">
+        <div class="text-arrow"></div>
+        企业用户的身份验证、充值、支付、提现等功能都是通过企业网关渠道完成的，因此企业用户需对公账户需开通网银B2B支付业务功能，才能完成以上操作。<br>
+        目前支持以下银行账户及对应的业务名称：
+        <table class="service-tab"  cellspacing="0" cellpadding="0">
+            <tr>
+                <th>银行</th>
+                <th>业务名称</th>
+            </tr>
+            <tr>
+                <td>工商银行</td>
+                <td>开通企业支付业务</td>
+            </tr>
+            <tr class="old">
+                <td>农业银行</td>
+                <td>开通对外支付业务</td>
+            </tr>
+            <tr>
+                <td>中国银行</td>
+                <td>开通B2B网上支付</td>
+            </tr>
+            <tr class="old">
+                <td>建设银行</td>
+                <td>开通B2B支付业务</td>
+            </tr>
+            <tr>
+                <td>交通银行</td>
+                <td>开通B2B买方业务</td>
+            </tr>
+            <tr class="old">
+                <td>光大银行</td>
+                <td>开通企业支付业务</td>
+            </tr>
+            <tr>
+                <td>华夏银行</td>
+                <td>开通B2B业务</td>
+            </tr>
+            <tr class="old">
+                <td>民生银行</td>
+                <td>开通B2B业务</td>
+            </tr>
+            <tr>
+                <td>平安银行</td>
+                <td>开通B2B业务</td>
+            </tr>
+            <tr class="old">
+                <td>招商银行</td>
+                <td>开通商务支付业务</td>
+            </tr>
+            <tr>
+                <td>浦发银行</td>
+                <td>开通电子商务支付业务</td>
+            </tr>
+            <tr class="old">
+                <td>河北银行</td>
+                <td>开通B2B支付业务</td>
+            </tr>
+            <tr>
+                <td>徽商银行</td>
+                <td>开通B2B支付业务</td>
+            </tr>
+            <tr class="old">
+                <td>中信银行</td>
+                <td>开通B2B支付业务</td>
+            </tr>
+            <tr>
+                <td>兴业银行</td>
+                <td>开通对外支付业务</td>
+            </tr>
+            <tr class="old">
+                <td>广发银行</td>
+                <td>开通网上支付业务</td>
+            </tr>
+            <tr>
+                <td>天津银行</td>
+                <td>开通B2B支付业务</td>
+            </tr>
+            <tr class="old">
+                <td>宁波银行</td>
+                <td>开通B2B支付业务</td>
+            </tr>
+            <tr>
+                <td>北京银行</td>
+                <td>开通B2B业务</td>
+            </tr>
+
+        </table>
+    </div>
+    <div class="title">10.XX宝充值有哪些限额？</div>
+    <div class="text-box">
+        <div class="text-arrow"></div>
+        XX宝单笔充值金额≥1,000元。最高充值金额依不同银行的实际情况而定，具体见下表：<br>
+        <span class="ok">1）企业账户充值的限额：</span>
+        <table class="service-tab"  cellspacing="0" cellpadding="0">
+            <tr>
+                <th>银行</th>
+                <th>单笔限额</th>
+                <th>日累计限额</th>
+                <th>备注</th>
+            </tr>
+            <tr>
+                <td>工商银行</td>
+                <td>5亿</td>
+                <td>10亿</td>
+                <td>开通企业支付业务</td>
+            </tr>
+            <tr class="old">
+                <td>农业银行</td>
+                <td>无</td>
+                <td>无</td>
+                <td>开通对外支付业务</td>
+            </tr>
+            <tr>
+                <td>中国银行</td>
+                <td>5000万</td>
+                <td>1亿</td>
+                <td>开通B2B网上支付</td>
+            </tr>
+            <tr class="old">
+                <td>建设银行</td>
+                <td>无</td>
+                <td>无</td>
+                <td>开通B2B支付业务</td>
+            </tr>
+            <tr>
+                <td>交通银行</td>
+                <td>10亿</td>
+                <td>10亿</td>
+                <td>开通B2B买方业务</td>
+            </tr>
+            <tr class="old">
+                <td>光大银行</td>
+                <td>无</td>
+                <td>无</td>
+                <td>开通企业支付业务</td>
+            </tr>
+            <tr>
+                <td>华夏银行</td>
+                <td>无</td>
+                <td>无</td>
+                <td>开通B2B业务</td>
+            </tr>
+            <tr class="old">
+                <td>民生银行</td>
+                <td>无</td>
+                <td>无</td>
+                <td>开通B2B业务</td>
+            </tr>
+            <tr>
+                <td>平安银行</td>
+                <td>无</td>
+                <td>无</td>
+                <td>开通B2B业务</td>
+            </tr>
+            <tr class="old">
+                <td>招商银行</td>
+                <td>无</td>
+                <td>无</td>
+                <td>开通商务支付业务</td>
+            </tr>
+            <tr>
+                <td>浦发银行</td>
+                <td>无</td>
+                <td>无</td>
+                <td>开通电子商务支付业务</td>
+            </tr>
+            <tr class="old">
+                <td>河北银行</td>
+                <td>100万</td>
+                <td>100万</td>
+                <td>开通B2B支付业务</td>
+            </tr>
+            <tr>
+                <td>徽商银行</td>
+                <td>1000万</td>
+                <td>5000万</td>
+                <td>开通B2B支付业务</td>
+            </tr>
+            <tr class="old">
+                <td>中信银行</td>
+                <td>无</td>
+                <td>无</td>
+                <td>开通B2B支付业务</td>
+            </tr>
+            <tr>
+                <td>兴业银行</td>
+                <td>无</td>
+                <td>无</td>
+                <td>开通对外支付业务</td>
+            </tr>
+            <tr class="old">
+                <td>广发银行</td>
+                <td>无</td>
+                <td>无</td>
+                <td>开通网上支付业务</td>
+            </tr>
+            <tr>
+                <td>天津银行</td>
+                <td>无</td>
+                <td>无</td>
+                <td>开通B2B支付业务</td>
+            </tr>
+            <tr class="old">
+                <td>宁波银行</td>
+                <td>无</td>
+                <td>无</td>
+                <td>开通B2B支付业务</td>
+            </tr>
+            <tr>
+                <td>北京银行</td>
+                <td>无</td>
+                <td>无</td>
+                <td>开通B2B业务</td>
+            </tr>
+        </table>
+        <br>
+        <span class="ok">2）个人账户充值限额：</span>
+        <table class="service-tab"  cellspacing="0" cellpadding="0">
+            <tr>
+                <th>银行</th>
+                <th>单笔限额</th>
+                <th>日累计限额</th>
+                <th>备注</th>
+            </tr>
+            <tr>
+                <td>邮储银行</td>
+                <td>200万</td>
+                <td>200万</td>
+                <td>需开通网银支付功能，限额以网银设置为准</td>
+            </tr>
+            <tr class="old">
+                <td>工商银行</td>
+                <td>5亿</td>
+                <td>10亿（中金）</td>
+                <td>需开通网银支付功能，限额以网银设置为准</td>
+            </tr>
+            <tr>
+                <td>农业银行</td>
+                <td>500万</td>
+                <td>500万</td>
+                <td>需开通网银支付功能，限额以网银设置为准</td>
+            </tr>
+            <tr class="old">
+                <td>中国银行</td>
+                <td>50万</td>
+                <td>50万</td>
+                <td>需开通网银支付功能，限额以网银设置为准</td>
+            </tr>
+            <tr>
+                <td>建设银行</td>
+                <td>50万</td>
+                <td>50万</td>
+                <td>需开通网银支付功能，限额以网银设置为准</td>
+            </tr>
+            <tr class="old">
+                <td>交通银行</td>
+                <td>10亿</td>
+                <td>10亿</td>
+                <td>需开通网银支付功能，限额以网银设置为准</td>
+            </tr>
+            <tr>
+                <td>光大银行</td>
+                <td>50万</td>
+                <td>50万</td>
+                <td>需开通网银支付功能，限额以网银设置为准</td>
+            </tr>
+            <tr class="old">
+                <td>华夏银行</td>
+                <td>50万</td>
+                <td>50万</td>
+                <td>需开通网银支付功能，限额以网银设置为准</td>
+            </tr>
+            <tr>
+                <td>民生银行</td>
+                <td>2万</td>
+                <td>10万</td>
+                <td>需开通网银支付功能，限额以网银设置为准</td>
+            </tr>
+            <tr class="old">
+                <td>招商银行</td>
+                <td>个人设置</td>
+                <td>个人设置</td>
+                <td>需开通网银支付功能，限额以网银设置为准</td>
+            </tr>
+            <tr>
+                <td>浦发银行</td>
+                <td>20万</td>
+                <td>20万</td>
+                <td>需开通网银支付功能，限额以网银设置为准</td>
+            </tr>
+            <tr class="old">
+                <td>徽商银行</td>
+                <td>个人设置</td>
+                <td>个人设置</td>
+                <td>需开通网银支付功能，限额以网银设置为准</td>
+            </tr>
+            <tr>
+                <td>上海银行</td>
+                <td>50万</td>
+                <td>100万</td>
+                <td>需开通网银支付功能，限额以网银设置为准</td>
+            </tr>
+            <tr class="old">
+                <td>中信银行</td>
+                <td>100万</td>
+                <td>无</td>
+                <td>需开通网银支付功能，限额以网银设置为准</td>
+            </tr>
+            <tr>
+                <td>宁波银行</td>
+                <td>个人设置</td>
+                <td>个人设置</td>
+                <td>需开通网银支付功能，限额以网银设置为准</td>
+            </tr>
+            <tr class="old">
+                <td>青岛银行</td>
+                <td>个人设置</td>
+                <td>个人设置</td>
+                <td>需开通网银支付功能，限额以网银设置为准</td>
+            </tr>
+            <tr>
+                <td>兰州银行</td>
+                <td>100万</td>
+                <td>300万</td>
+                <td>需开通网银支付功能，限额以网银设置为准</td>
+            </tr>
+            <tr class="old">
+                <td>平安银行</td>
+                <td>5万</td>
+                <td>5万</td>
+                <td>需开通网银支付功能，限额以网银设置为准</td>
+            </tr>
+            <tr>
+                <td>北京银行</td>
+                <td>个人设置</td>
+                <td>个人设置</td>
+                <td>需开通网银支付功能，限额以网银设置为准</td>
+            </tr>
+        </table>
+    </div>
+    <div class="title">11.信用卡是否可以用于充值？</div>
+    <div class="text-box">
+        <div class="text-arrow"></div>
+        信用卡充值业务本身存在一定的套现风险，考虑到银行监管原因，目前不支持信用卡充值。
+    </div>
+    <div class="title">12.如何查询充值明细？</div>
+    <div class="text-box">
+        <div class="text-arrow"></div>
+        登录XX宝→点击【账单明细】→点击进入【充值明细】页面，选择时间段进行<br>
+        <span class="ok">查询 :</span>
+        <div class="img"><img src="./static/images/img-10.jpg"></div>
+    </div>
+
+    <div class="title">13.XX宝的收益如何计算？</div>
+    <div class="text-box">
+        <div class="text-arrow"></div>
+
+        T日 18:00 前 充值，T+1产生收益，T+2显示收益。<br>
+        T日 18:00 后 充值，T+2产生收益，T+3显示收益。（逢节假日顺延）<br>
+        以上时间T为工作日，T+1、T+2、T+3均为工作日。<br>
+
+        <table class="service-tab mt-10" cellspacing="0" cellpadding="0">
+            <tr>
+                <th>充值时间</th>
+                <th>产生收益时间</th>
+                <th>收益显示时间</th>
+            </tr>
+            <tr>
+                <td>周一 18：00 前</td>
+                <td>周二</td>
+                <td>周三</td>
+            </tr>
+            <tr class="old">
+                <td>周一 18：00  — 周二 18：00</td>
+                <td>周三</td>
+                <td>周四</td>
+            </tr>
+            <tr>
+                <td>周二 18：00  — 周三 18：00</td>
+                <td>周四</td>
+                <td>周五</td>
+            </tr>
+            <tr class="old">
+                <td>周三 18：00  — 周四 18：00</td>
+                <td>周五</td>
+                <td>周六</td>
+            </tr>
+            <tr>
+                <td>周四 18：00  — 周五 18：00</td>
+                <td>下周一</td>
+                <td>下周二</td>
+            </tr>
+            <tr  class="old">
+                <td>周五 18：00后、周六全天、周日全天</td>
+                <td>下周二</td>
+                <td>下周三</td>
+            </tr>
+        </table>
+
+    </div>
+    <div class="title">14.收益是否可以用于支付？</div>
+    <div class="text-box">
+        <div class="text-arrow"></div>
+        收益暂不可以用于支付。
+    </div>
+    <div class="title">15.如何使用XX宝付款？</div>
+    <div class="text-box">
+        <div class="text-arrow"></div>
+        <div class="mb-10">用户可以采用XX宝的账户余额进行付款, 具体付款流程如下：</div>
+        订单提交至付款页面，选择XX宝付款 → 获取并填写手机验证码，填写支付密码 → 确认无误，<br>
+        点击【确认付款】 → 返回支付结果，支付完成。
+    </div>
+
+    <div class="title">16.账户余额小于订单金额时，是否可以选择组合支付？</div>
+    <div class="text-box">
+        <div class="text-arrow"></div>
+        当用户的账户余额小于订单金额时，不能采用组合支付的方式支付，须充值直至账户余额足以支付订单后，方可完成支付。
+    </div>
+    <div class="title">17.充值的资金能否即时用于支付?</div>
+    <div class="text-box">
+        <div class="text-arrow"></div>
+        成功充值后的资金即时可用于订单支付。
+    </div>
+    <div class="title">18.XX宝充值成功后，何时可以提现？ </div>
+    <div class="text-box">
+        <div class="text-arrow"></div>
+        XX宝成功充值，起息日之后满7天即可申请提现。<br>
+        例：<br>
+        周一18：00前 充值成功，周二起息（逢节假日顺延），下周二可以申请提现。<br>
+        周一18：00后 充值成功，周三起息（逢节假日顺延），下周三可以申请提现。
+    </div>
+    <div class="title">19.XX宝如何申请提现？</div>
+    <div class="text-box">
+        <div class="text-arrow"></div>
+        登录XX宝→点击【提现】，进入提现页面→输入提现金额，点击【下一步】→获取并输入手机验证码，<br>
+        填写正确的支付密码，点击【确认提现】→返回申请提现结果，等待提现金额到账。
+    </div>
+    <div class="title">20.XX宝提现有金额或者次数限制吗？</div>
+    <div class="text-box">
+        <div class="text-arrow"></div>
+        暂无提现金额、提现次数限制。
+    </div>
+    <div class="title">21.XX宝申请提现多久可以到账？</div>
+    <div class="text-box">
+        <div class="text-arrow"></div>
+        <div class="mb-10">申请提现成功后， 最长T+2个工作日到账（逢节假日顺延）。</div>
+        <span class="ok">例：</span><br>
+        周一 18：00前 申请提现成功，周二到账。<br>
+        周一 18：00后 申请提现成功，周三到账。
+    </div>
+    <div class="title">22.如何查询提现明细?</div>
+    <div class="text-box">
+        <div class="text-arrow"></div>
+        登录XX宝→点击【账单明细】→点击【提现明细】，可以按照时间段查询“待提现”和“已提现”的明细。
+        <div class="img"><img src="../static/images/img-11.jpg"></div>
+    </div>
+    <div class="title">23.申请提现了，能取消吗？</div>
+    <div class="text-box">
+        <div class="text-arrow"></div>
+
+        提现一旦申请是无法取消的，建议您在提现前考虑清楚是否需要提现。
+    </div>
+    <div class="title">24.提现是否需要手续费?</div>
+    <div class="text-box">
+        <div class="text-arrow"></div>
+        目前，XX宝提现不收取任何费用。
+    </div>
+    <div class="title">25.手机能接收短信，收不到手机验证码的处理方法?</div>
+    <div class="text-box">
+        <div class="text-arrow"></div>
+        <div class="mb-10">如果碰到无法接收手机验证码的情况，请您仔细检查是否为如下情况：</div>
+        1）经过手机短信网关时，网络通讯异常有可能会造成短信丢失，或延时收到短信，这种情况下，请您耐心等待。<br>
+        2）请您核实手机是否处于正常能够接收短信状态，停机和欠费状态下是不能够收到短信的。<br>
+        3）请您核实手机是否开启屏蔽系统短信，或安装了一些拦截短信的软件，建议您手机卡换到其他的手机上操作一下。 <br>
+        4）请您确认是否修改了银行预留的手机号码，如果是需要重新绑定新的手机号码。
+    </div>
+
+    <div class="title">26. 运营方联系方式？</div>
+    <div class="text-box fb">
+        <div class="text-arrow"></div>
+        <span class="ok mb-10 db">广东钱途互联商务服务有限公司</span>
+        服务热线：<span class="orange fb">400-106-6698</span> <br>
+        服务邮箱：<span class="blue fb">frontpay_service@frontpay.cn</span><br>
+        工作时间：周一到周五  9：00~ 18：00。
+
+    </div>
+</div>
+
+{% endmacro %}

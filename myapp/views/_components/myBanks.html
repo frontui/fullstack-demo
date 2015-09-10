@@ -1,0 +1,115 @@
+{% macro render(verify=0, isPerson = 1) %}
+    <div class="bankcard-list-wrap">
+        <ul class="bankcard-list">
+            {% if verify == 1 %}
+            <li class="work">
+                <div class="bank-box">
+                    <div class="bank-icon icon-icbc"></div>
+                    工商银行
+                </div>
+                <h3>
+                    **********6877
+                </h3>
+                        <span class="work-tag">
+                            已绑定
+                        </span>
+                <div class="notwork-tag">
+                    审核不通过
+                    <a href="###" class="bank-card-btn">
+                        重新绑定
+                    </a>
+                </div>
+                <div class="waiting-tag">
+                    审核中
+                </div>
+            </li>
+            <li class="notwork">
+                <div class="bank-box">
+                    <div class="bank-icon icon-bcm"></div>
+                    交通银行
+                </div>
+                <h3>
+                    **********6877
+                </h3>
+                        <span class="work-tag">
+                            已绑定
+                        </span>
+                <div class="notwork-tag">
+                    审核不通过
+                    <a href="###" class="bank-card-btn">
+                        重新绑定
+                    </a>
+                </div>
+                <div class="waiting-tag">
+                    审核中
+                </div>
+            </li>
+            <li class="waiting">
+                <div class="bank-box">
+                    <div class="bank-icon icon-pingan"></div>
+                    平安银行
+                </div>
+                <h3>
+                    **********6877
+                </h3>
+                        <span class="work-tag">
+                            已绑定
+                        </span>
+                <div class="notwork-tag">
+                    审核不通过
+                    <a href="###" class="bank-card-btn">
+                        重新绑定
+                    </a>
+                </div>
+                <div class="waiting-tag">
+                    审核中
+                </div>
+            </li>
+            <li class="waiting">
+                <div class="bank-box">
+                    <div class="bank-icon icon-example"></div>
+                    测试银行
+                </div>
+                <h3>
+                    **********6877
+                </h3>
+                        <span class="work-tag">
+                            已绑定
+                        </span>
+                <div class="notwork-tag">
+                    审核不通过
+                    <a href="###" class="bank-card-btn">
+                        重新绑定
+                    </a>
+                </div>
+                <div class="waiting-tag">
+                    审核中
+                </div>
+            </li>
+            <li class="add-card">
+                {% if isPerson == 1 %}
+                <a href="06账户管理个人_添加银行卡.html" class="link-standard">
+                    +&nbsp;添加银行卡
+                </a>
+                {% else %}
+                <a href="06账户管理个人_添加银行卡.html" class="link-standard">
+                    +&nbsp;添加银行账户
+                </a>
+                {% endif %}
+            </li>
+            {% else %}
+            <li class="add-card">
+                {% if isPerson == 1 %}
+                <a href="06账户管理个人_个人验证1.html" class="link-standard">
+                    +&nbsp;添加银行卡
+                </a>
+                {% else %}
+                <a href="05账户管理企业_企业验证1.html" class="link-standard">
+                    +&nbsp;添加银行账户
+                </a>
+                {% endif %}
+            </li>
+            {% endif %}
+        </ul>
+    </div>
+{% endmacro %}

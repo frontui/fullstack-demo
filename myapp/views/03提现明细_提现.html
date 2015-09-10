@@ -1,0 +1,198 @@
+{% extends "_layout/wrapper.html" %}
+{# content内容 #}
+{% block content %}
+
+	{# 菜单导航 #}
+	{{ navigator.current('nav3') }}
+
+	<ol class="breadcrumb fn-mb-10">
+		<li>
+			<a href="03提现明细.html">提现明细 <i class="icon-chevron-thin-right"></i></a>
+		</li>
+		<li>
+            余额提现到银行账户
+		</li>
+	</ol>
+
+	{# 步骤 #}
+	{{ Step.render('pass1', '提现信息', '提现信息确认', '提现结果') }}
+
+
+	{# 表单 #}
+	<div class="form-frame">
+		{# title #}
+		<div class="tables-title form-title">
+			<span>余额提现到银行账户</span>
+			<div class="table-title-btns">
+				<a href="javascript:history.go(-1)">返回 <i class="icon-chevron-thin-right"></i></a>
+			</div>
+		</div>
+		<div class="form-layer1">
+			<div class="form-layer2">
+				<form action="03提现明细_提现确认.html">
+					{# 您的账户 #}
+					<div class="form-group">
+						<label class="form-control-label">
+							<span>您的账户</span>
+							<em>：</em>
+						</label>
+
+						<div class="form-control-wrap">
+							<div class="form-control-data"><span>XXX有限公司</span></div>
+						</div>
+					</div>
+					{# 账户余额 #}
+					<div class="form-group">
+						<label class="form-control-label">
+							<span>账户余额</span>
+							<em>：</em>
+						</label>
+
+						<div class="form-control-wrap">
+							<div class="form-control-data"><span>6,814,000 元</span></div>
+						</div>
+					</div>
+
+					{# 可提现金额 #}
+					<div class="form-group">
+						<label class="form-control-label">
+							<span>可提现金额</span>
+							<em>：</em>
+						</label>
+						<div class="form-control-wrap">
+							<div class="form-control-data">
+								<strong class="h3 warning-FontColor">14,000</strong>&nbsp;元
+								<div class="tooltips-icon">
+									i
+									<div class="tooltips">
+										部分款项未到期
+										<span class="tips-arrow-border"></span>
+										<span class="tips-arrow"></span>
+									</div>
+								</div>
+                                <a href="03提现明细.html" class="link-standard fn-ml-10">提现明细</a>
+							</div>
+						</div>
+					</div>
+
+					{# 请输入提现金额 #}
+					<div class="form-group">
+						<label class="form-control-label" for="form-control-withdrawFull">
+							<span>
+								请输入提现金额
+							</span>
+							<em>
+								：
+							</em>
+						</label>
+						<div class="form-control-wrap">
+							<div class="form-control-withdrawFull">
+								<input type="text" class="form-control" tabindex="1" id="form-control-withdrawFull">
+								<button type="button" id="j-pick" class="btn form-control-withdrawFull-btn">全部提取</button>
+								<input type="hidden" name="mybill" value="30000" />
+							</div>
+						</div>
+					</div>
+
+					{# 提现到 #}
+					<div class="form-group">
+						<label class="form-control-label">
+							<span>提现到</span>
+							<em>：</em>
+						</label>
+						<div class="form-control-wrap">
+							<div class="form-control-data">
+                                <span class="bank-icon icon-cmb" title="招商银行"></span>
+                                <span class="form-control-bank-card">招商银行&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;尾号1234</span>
+							</div>
+						</div>
+					</div>
+
+					{# 提现账户开户省市 #}
+					<div class="form-group has-error" style="*z-index: 4">
+						<label for="bank" class="form-control-label">
+							<span>
+								提现账户开户省市
+							</span>
+							<em>
+								：
+							</em>
+						</label>
+						<div class="form-control-wrap">
+							{{ Form.city() }}
+
+                            <div class="form-notice">
+                                <i></i>
+                                表单填写错误
+                            </div>
+						</div>
+					</div>
+
+					{# 提现账户开户支行 #}
+					<div class="form-group"  style="*z-index: 2">
+						<label for="bank" class="form-control-label">
+							<span>
+								提现账户开户支行
+							</span>
+							<em>
+								：
+							</em>
+						</label>
+						<div class="form-control-wrap">
+							<div class="form-control-dropdown with-keyin">
+								<span class="form-control-dropdown-btn">
+									<i></i>
+								</span>
+								<input type="text" data-toggle="dropdown" tabindex="3" class="form-control" id="bank" placeholder="请选择银行" value="">
+								<ul class="form-control-dropdown-menu">
+									<li title="工商银行天河支行">
+										工商银行天河支行
+									</li>
+									<li title="工商银行体育西支行">
+										工商银行体育西支行
+									</li>
+									<li title="农业银行体育西支行">
+										农业银行体育西支行
+									</li>
+									<li title="招商银行体育西支行">
+										农业银行体育西支行
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+
+					{# 下一步 #}
+					<div class="form-group">
+						<div class="form-control-wrap text-align-left plural-btns margin-top-20px">
+							<button type="submit" class="btn primary">下一步</button>
+						</div>
+					</div>
+
+				</form>
+			</div>
+		</div>
+	</div>
+
+
+{% endblock %}
+
+{% block jsPage %}
+<script>
+	~(function( $ ) {
+		var pageInit = function() {
+			// 全部提取
+			$('#j-pick').on('click', function() {
+				var $that = $(this);
+				$that.prev(':input').val(function() {
+					return $that.next(':input').val();
+				})
+			})
+		};
+
+		$(document).ready(pageInit)
+	})( jQuery );
+</script>
+{% endblock %}
+
+

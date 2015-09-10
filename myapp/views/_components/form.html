@@ -1,0 +1,442 @@
+{# 密码输入框 #}
+{% macro password(name='password', id='password', placeholder='8-20个英文字母、数字或符号的组合', value='', tabindex=1) %}
+    <input name="{{ name }}" type="password" class="form-control" id="{{ id }}" placeholder="{{ placeholder }}" tabindex="{{ tabindex }}" value="{{ value }}">
+{% endmacro %}
+
+{# 表单验证提示 #}
+{% macro tips(text='') %}
+    <div class="form-notice">
+        <i></i>
+        {{ text }}
+    </div>
+{% endmacro %}
+
+{# 卡号输入框 #}
+{% macro bankcard(placeholder='卡号是16-19位数字', tabindex=1) %}
+    <input id="bankcard" placeholder="{{ placeholder }}" tabindex="{{ tabindex }}" type="text" class="form-control"/>
+{% endmacro %}
+
+{# 手机号码 #}
+{% macro mobile(placeholder='请输入手机号码', value='', readonly='', tabindex=1) %}
+    <input id="mobile" placeholder="{{ placeholder }}" value="{{ value }}" tabindex="{{ tabindex }}" {{ readonly }} type="text" class="form-control"/>
+{% endmacro %}
+
+{# 银行列表 #}
+{% macro banks(placeholder='请选择银行', type=0, tabindex=1) %}
+<div class="form-control-dropdown with-keyin">
+    <span class="form-control-dropdown-btn">
+        <i></i>
+    </span>
+    {% if type == 0%}
+    <input type="text" data-toggle="dropdown" tabindex="{{ tabindex }}" data-auto="bank" class="form-control" id="bank" placeholder="{{ placeholder }}" value="" aria-expanded="true">
+    {% else %}
+    <div class="form-control-dropdown-value" tabindex="{{ tabindex }}" data-auto="bank" title="{{ placeholder }}"><span class="form-placeholder">{{ placeholder }}</span></div>
+    {% endif %}
+    <ul class="form-control-dropdown-menu">
+        <li title="option">
+            <span class="bank-icon icon-cmb" title="招商银行"></span>
+            <span class="form-control-bank-card">招商银行&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;尾号1234</span>
+        </li>
+        <li title="option">
+            <span class="bank-icon icon-icbc" title="工商银行"></span>
+            <span class="form-control-bank-card">工商银行&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;尾号1234</span>
+        </li>
+        <li title="option">
+            <span class="bank-icon icon-ccb" title="建设银行"></span>
+            <span class="form-control-bank-card">建设银行&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;尾号1234</span>
+        </li>
+        <li title="option">
+            <span class="bank-icon icon-abc" title="农业银行"></span>
+            <span class="form-control-bank-card">农业银行&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;尾号1234</span>
+        </li>
+        <li title="option">
+            <span class="bank-icon icon-boc" title="中国银行"></span>
+            <span class="form-control-bank-card">中国银行&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;尾号1234</span>
+        </li>
+        <li title="option">
+            <span class="bank-icon icon-comm" title="交通银行"></span>
+            <span class="form-control-bank-card">交通银行&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;尾号1234</span>
+        </li>
+        <li title="option">
+            <span class="bank-icon icon-pingan" title="平安银行"></span>
+            <span class="form-control-bank-card">平安银行&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;尾号1234</span>
+        </li>
+        <li title="option">
+            <span class="bank-icon icon-psbc" title="邮政银行"></span>
+            <span class="form-control-bank-card">邮政银行&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;尾号1234</span>
+        </li>
+        <li title="option">
+            <span class="bank-icon icon-shbc" title="上海银行"></span>
+            <span class="form-control-bank-card">上海银行&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;尾号1234</span>
+        </li>
+        <li title="option">
+            <span class="bank-icon icon-wzbc" title="温州银行"></span>
+            <span class="form-control-bank-card">温州银行&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;尾号1234</span>
+        </li>
+        <li title="option">
+            <span class="bank-icon icon-spdb" title="浦发银行"></span>
+            <span class="form-control-bank-card">浦发银行&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;尾号1234</span>
+        </li>
+        <li title="option">
+            <span class="bank-icon icon-ecitic" title="中信银行"></span>
+            <span class="form-control-bank-card">中信银行&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;尾号1234</span>
+        </li>
+        <li title="option">
+            <span class="bank-icon icon-cgbchina" title="广发银行"></span>
+            <span class="form-control-bank-card">广发银行&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;尾号1234</span>
+        </li>
+        <li title="option">
+            <span class="bank-icon icon-cmbc" title="民生银行"></span>
+            <span class="form-control-bank-card">民生银行&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;尾号1234</span>
+        </li>
+        <li title="option">
+            <span class="bank-icon icon-cib" title="兴业银行"></span>
+            <span class="form-control-bank-card">兴业银行&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;尾号1234</span>
+        </li>
+        <li title="option">
+            <span class="bank-icon icon-cebbank" title="光大银行"></span>
+            <span class="form-control-bank-card">光大银行&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;尾号1234</span>
+        </li>
+        <li title="option">
+            <span class="bank-icon icon-srcb" title="上海农商银行"></span>
+            <span class="form-control-bank-card">上海农商银行&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;尾号1234</span>
+        </li>
+        <li title="option">
+            <span class="bank-icon icon-bankofbeijing" title="北京银行"></span>
+            <span class="form-control-bank-card">北京银行&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;尾号1234</span>
+        </li>
+        <li title="option">
+            <span class="bank-icon icon-bjrcb" title="北京农商银行"></span>
+            <span class="form-control-bank-card">北京农商银行&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;尾号1234</span>
+        </li>
+        <li title="option">
+            <span class="bank-icon icon-szfz" title="深圳发展银行"></span>
+            <span class="form-control-bank-card">深圳发展银行&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;尾号1234</span>
+        </li>
+        <li title="option">
+            <span class="bank-icon icon-nbcb" title="宁波银行"></span>
+            <span class="form-control-bank-card">宁波银行&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;尾号1234</span>
+        </li>
+        <li title="option">
+            <span class="bank-icon icon-hzbank" title="杭州银行"></span>
+            <span class="form-control-bank-card">杭州银行&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;尾号1234</span>
+        </li>
+        <li title="option">
+            <span class="bank-icon icon-dongguanbank" title="东莞银行"></span>
+            <span class="form-control-bank-card">东莞银行&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;尾号1234</span>
+        </li>
+        <li title="option">
+            <span class="bank-icon icon-hsbc" title="汇丰银行"></span>
+            <span class="form-control-bank-card">汇丰银行&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;尾号1234</span>
+        </li>
+        <li title="option">
+            <span class="bank-icon icon-hkbea" title="东亚银行"></span>
+            <span class="form-control-bank-card">东亚银行&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;尾号1234</span>
+        </li>
+        <li title="option">
+            <span class="bank-icon icon-961111" title="广州农商银行"></span>
+            <span class="form-control-bank-card">广州农商银行&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;尾号1234</span>
+        </li>
+        <li title="option">
+            <span class="bank-icon icon-hxb" title="华夏银行"></span>
+            <span class="form-control-bank-card">华夏银行&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;尾号1234</span>
+        </li>
+        <li title="option">
+            <span class="bank-icon icon-crbank" title="华润银行"></span>
+            <span class="form-control-bank-card">华润银行&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;尾号1234</span>
+        </li>
+        <li title="option">
+            <span class="bank-icon icon-lanzhou" title="兰州银行"></span>
+            <span class="form-control-bank-card">兰州银行&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;尾号1234</span>
+        </li>
+        <li title="option">
+            <span class="bank-icon icon-hebbank" title="河北银行"></span>
+            <span class="form-control-bank-card">河北银行&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;尾号1234</span>
+        </li>
+        <li title="option">
+            <span class="bank-icon icon-hsbank" title="微商银行"></span>
+            <span class="form-control-bank-card">微商银行&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;尾号1234</span>
+        </li>
+        <li title="option">
+            <span class="bank-icon icon-qdccb" title="青岛银行"></span>
+            <span class="form-control-bank-card">青岛银行&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;尾号1234</span>
+        </li>
+        <li title="option">
+            <span class="bank-icon icon-ydnsh" title="尧都农商"></span>
+            <span class="form-control-bank-card">尧都农商&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;尾号1234</span>
+        </li>
+        <li title="option">
+            <span class="bank-icon icon-zheshang" title="浙商银行"></span>
+            <span class="form-control-bank-card">浙商银行&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;尾号1234</span>
+        </li>
+        <li title="option">
+            <span class="bank-icon icon-nccbank" title="南昌银行"></span>
+            <span class="form-control-bank-card">南昌银行&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;尾号1234</span>
+        </li>
+        <li title="option">
+            <span class="bank-icon icon-cbhb" title="渤海银行"></span>
+            <span class="form-control-bank-card">渤海银行&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;尾号1234</span>
+        </li>
+        <li title="option">
+            <span class="bank-icon icon-egbank" title="恒丰银行"></span>
+            <span class="form-control-bank-card">恒丰银行&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;尾号1234</span>
+        </li>
+        <li title="option">
+            <span class="bank-icon icon-tianjinbank" title="天津银行"></span>
+            <span class="form-control-bank-card">天津银行&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;尾号1234</span>
+        </li>
+    </ul>
+</div>
+{% endmacro %}
+
+{% macro banks2(placeholder='请选择银行', type=0, tabindex=1) %}
+<div class="form-control-dropdown">
+    <span class="form-control-dropdown-btn">
+        <i></i>
+    </span>
+    {% if type == 0%}
+    <input type="text" data-toggle="dropdown" tabindex="{{ tabindex }}" data-auto="bank" class="form-control" id="bank" placeholder="{{ placeholder }}" value="" aria-expanded="true">
+    {% else %}
+    <div class="form-control-dropdown-value" tabindex="{{ tabindex }}" data-auto="bank" title="{{ placeholder }}"><span class="form-placeholder">{{ placeholder }}</span></div>
+    {% endif %}
+
+    <ul class="form-control-dropdown-menu">
+        <li title="option">
+            <span class="bank-icon icon-cmb" title="招商银行"></span>
+            <span class="form-control-bank-card">招商银行</span>
+        </li>
+        <li title="option">
+            <span class="bank-icon icon-icbc" title="工商银行"></span>
+            <span class="form-control-bank-card">工商银行</span>
+        </li>
+        <li title="option">
+            <span class="bank-icon icon-ccb" title="建设银行"></span>
+            <span class="form-control-bank-card">建设银行</span>
+        </li>
+        <li title="option">
+            <span class="bank-icon icon-abc" title="农业银行"></span>
+            <span class="form-control-bank-card">农业银行</span>
+        </li>
+        <li title="option">
+            <span class="bank-icon icon-boc" title="中国银行"></span>
+            <span class="form-control-bank-card">中国银行</span>
+        </li>
+        <li title="option">
+            <span class="bank-icon icon-comm" title="交通银行"></span>
+            <span class="form-control-bank-card">交通银行</span>
+        </li>
+        <li title="option">
+            <span class="bank-icon icon-pingan" title="平安银行"></span>
+            <span class="form-control-bank-card">平安银行</span>
+        </li>
+        <li title="option">
+            <span class="bank-icon icon-psbc" title="邮政银行"></span>
+            <span class="form-control-bank-card">邮政银行</span>
+        </li>
+        <li title="option">
+            <span class="bank-icon icon-shbc" title="上海银行"></span>
+            <span class="form-control-bank-card">上海银行</span>
+        </li>
+        <li title="option">
+            <span class="bank-icon icon-wzbc" title="温州银行"></span>
+            <span class="form-control-bank-card">温州银行</span>
+        </li>
+        <li title="option">
+            <span class="bank-icon icon-spdb" title="浦发银行"></span>
+            <span class="form-control-bank-card">浦发银行</span>
+        </li>
+        <li title="option">
+            <span class="bank-icon icon-ecitic" title="中信银行"></span>
+            <span class="form-control-bank-card">中信银行</span>
+        </li>
+        <li title="option">
+            <span class="bank-icon icon-cgbchina" title="广发银行"></span>
+            <span class="form-control-bank-card">广发银行</span>
+        </li>
+        <li title="option">
+            <span class="bank-icon icon-cmbc" title="民生银行"></span>
+            <span class="form-control-bank-card">民生银行</span>
+        </li>
+        <li title="option">
+            <span class="bank-icon icon-cib" title="兴业银行"></span>
+            <span class="form-control-bank-card">兴业银行</span>
+        </li>
+        <li title="option">
+            <span class="bank-icon icon-cebbank" title="光大银行"></span>
+            <span class="form-control-bank-card">光大银行</span>
+        </li>
+        <li title="option">
+            <span class="bank-icon icon-srcb" title="上海农商银行"></span>
+            <span class="form-control-bank-card">上海农商银行</span>
+        </li>
+        <li title="option">
+            <span class="bank-icon icon-bankofbeijing" title="北京银行"></span>
+            <span class="form-control-bank-card">北京银行</span>
+        </li>
+        <li title="option">
+            <span class="bank-icon icon-bjrcb" title="北京农商银行"></span>
+            <span class="form-control-bank-card">北京农商银行</span>
+        </li>
+        <li title="option">
+            <span class="bank-icon icon-szfz" title="深圳发展银行"></span>
+            <span class="form-control-bank-card">深圳发展银行</span>
+        </li>
+        <li title="option">
+            <span class="bank-icon icon-nbcb" title="宁波银行"></span>
+            <span class="form-control-bank-card">宁波银行</span>
+        </li>
+        <li title="option">
+            <span class="bank-icon icon-hzbank" title="杭州银行"></span>
+            <span class="form-control-bank-card">杭州银行</span>
+        </li>
+        <li title="option">
+            <span class="bank-icon icon-dongguanbank" title="东莞银行"></span>
+            <span class="form-control-bank-card">东莞银行</span>
+        </li>
+        <li title="option">
+            <span class="bank-icon icon-hsbc" title="汇丰银行"></span>
+            <span class="form-control-bank-card">汇丰银行</span>
+        </li>
+        <li title="option">
+            <span class="bank-icon icon-hkbea" title="东亚银行"></span>
+            <span class="form-control-bank-card">东亚银行</span>
+        </li>
+        <li title="option">
+            <span class="bank-icon icon-961111" title="广州农商银行"></span>
+            <span class="form-control-bank-card">广州农商银行</span>
+        </li>
+        <li title="option">
+            <span class="bank-icon icon-hxb" title="华夏银行"></span>
+            <span class="form-control-bank-card">华夏银行</span>
+        </li>
+        <li title="option">
+            <span class="bank-icon icon-crbank" title="华润银行"></span>
+            <span class="form-control-bank-card">华润银行</span>
+        </li>
+        <li title="option">
+            <span class="bank-icon icon-lanzhou" title="兰州银行"></span>
+            <span class="form-control-bank-card">兰州银行</span>
+        </li>
+        <li title="option">
+            <span class="bank-icon icon-hebbank" title="河北银行"></span>
+            <span class="form-control-bank-card">河北银行</span>
+        </li>
+        <li title="option">
+            <span class="bank-icon icon-hsbank" title="微商银行"></span>
+            <span class="form-control-bank-card">微商银行</span>
+        </li>
+        <li title="option">
+            <span class="bank-icon icon-qdccb" title="青岛银行"></span>
+            <span class="form-control-bank-card">青岛银行</span>
+        </li>
+        <li title="option">
+            <span class="bank-icon icon-ydnsh" title="尧都农商"></span>
+            <span class="form-control-bank-card">尧都农商</span>
+        </li>
+        <li title="option">
+            <span class="bank-icon icon-zheshang" title="浙商银行"></span>
+            <span class="form-control-bank-card">浙商银行</span>
+        </li>
+        <li title="option">
+            <span class="bank-icon icon-nccbank" title="南昌银行"></span>
+            <span class="form-control-bank-card">南昌银行</span>
+        </li>
+        <li title="option">
+            <span class="bank-icon icon-cbhb" title="渤海银行"></span>
+            <span class="form-control-bank-card">渤海银行</span>
+        </li>
+        <li title="option">
+            <span class="bank-icon icon-egbank" title="恒丰银行"></span>
+            <span class="form-control-bank-card">恒丰银行</span>
+        </li>
+        <li title="option">
+            <span class="bank-icon icon-tianjinbank" title="天津银行"></span>
+            <span class="form-control-bank-card">天津银行</span>
+        </li>
+    </ul>
+</div>
+{% endmacro%}
+
+{# 验证码 #}
+{% macro verify(id='', text='获取验证码', active='', tabindex=1) %}
+<div class="form-control-verify">
+    <input type="text" class="form-control" tabindex="{{ tabindex }}" id="{{ id }}">
+    <button type="button" class="btn form-control-verify-btn {{ active }}" tabindex="{{ tabindex + 1}}">{{ text }}</button>
+</div>
+{% endmacro %}
+
+{# 协议 #}
+{% macro agreement(hasTip='', tabindex=1) %}
+<div class="form-control-wrap">
+    <div class="form-control-check">
+        <label class="agreement-check">
+            我已阅读并同意 <a target="_blank" href="协议.html" class="link-standard">《服务协议》</a>
+            <input type="checkbox" name="" tabindex="{{ tabindex }}">
+        </label>
+    </div>
+    {% if hasTip %}
+    <div class="form-agreement-tip">
+        钱途测试是钱途测试携手招商银行共同打造的一款互联网支付及增值的金融服务产品，由钱途互联负责运营。
+    </div>
+    {% endif %}
+</div>
+{% endmacro %}
+
+{# 城市 #}
+{% macro city(province='请选择省份', city='请选择城市', tabindex=2) %}
+<div class="form-control-dropdown form-inline drop-select-province with-keyin">
+    <span class="form-control-dropdown-btn">
+        <i></i>
+    </span>
+    <div class="form-control-dropdown-value" tabindex="{{ tabindex }}" title="{{ province }}"><span class="form-placeholder">{{ province }}</span></div>
+    <ul class="form-control-dropdown-menu">
+        <li title="北京">
+            北京
+        </li>
+        <li title="上海">
+            上海
+        </li>
+        <li title="广东">
+            广东
+        </li>
+        <li title="浙江">
+            浙江
+        </li>
+    </ul>
+</div>
+<div class="form-control-dropdown form-inline drop-select-city with-keyin">
+    <span class="form-control-dropdown-btn">
+        <i></i>
+    </span>
+    <div class="form-control-dropdown-value" tabindex="{{ tabindex + 1 }}" title="{{ city }}"><span class="form-placeholder">{{ city }}</span></div>
+    <ul class="form-control-dropdown-menu">
+        <li title="北京">
+            北京
+        </li>
+        <li title="上海">
+            上海
+        </li>
+        <li title="广州">
+            广州
+        </li>
+        <li title="杭州">
+            杭州
+        </li>
+    </ul>
+</div>
+{% endmacro %}
+
+{# 单个按钮 #}
+{% macro defaultBtn(text='下一步', type='submit', id='', tabindex=1) %}
+<div class="form-control-wrap text-align-left plural-btns margin-top-20px">
+    <button type="{{ type }}" tabindex="{{ tabindex }}" class="btn primary" {% if id %}id="{{ id }}"{% endif %}>{{ text }}</button>
+</div>
+{% endmacro %}
+
+{# 两个按钮 #}
+{% macro doubleBtn(text='下一步', type='submit', id='', text2='返回', link='javascript:history.go(-1)', tabindex=1) %}
+<div class="form-control-wrap text-align-left plural-btns margin-top-20px">
+    <button type="{{ type }}"  tabindex="{{ tabindex }}" class="btn primary" {% if id %}id="{{ id }}"{% endif %}>{{ text }}</button>
+    <a href="{{ link }}"  tabindex="{{ tabindex + 1 }}" class="btn links">{{text2}}</a>
+</div>
+{% endmacro %}
