@@ -1,3 +1,4 @@
 {
-	"name": "用户端3.0"
+	"name": "用户端3.0",
+	"bower_components":"/bower_components"
 }
