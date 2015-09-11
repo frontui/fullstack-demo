@@ -15,3 +15,9 @@
 **浏览器打开**
 
 	`http://localhost:3000`
+
+**安装bower依赖**
+
+切换到`myapp/public/`目录下
+
+	bower install
