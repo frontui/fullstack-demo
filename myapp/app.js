@@ -14,6 +14,7 @@ var number = require('lang-js-number');
 var config = require('./data/config.json');
 var routes = require('./routes/index');
 var list = require('./routes/list');
+var api = require('./routes/api');
 
 var app = express();
 
@@ -44,6 +45,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', routes);
 app.use('/list', list);
+app.use('/api', api);
+
 // 代理除了demo以外模板
 app.use(/^(.*)\.html$/,function(req, res, next) {
 	var fileName = req.params[0];
