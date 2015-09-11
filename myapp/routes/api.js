@@ -20,6 +20,14 @@ router.get('/list', function(req, res, next) {
   res.json(data)
 });
 
+router.get('/list/id/:id', function(req, res, next){
+	var list = data.list;
+	var collection = _.filter(list, function(item){
+		return item.id == req.params.id;
+	})
+	res.json(collection[0])
+})
+
 function getUserData(a, b){
 	var d = b[a["uid"]];
 	if(d) {

@@ -1,0 +1,71 @@
+
+	<ol class="breadcrumb fn-mb-10">
+		<li>
+			<a href="/">账户总览 <i class="icon-chevron-thin-right"></i></a>
+		</li>
+		<li>
+			<a href="/list">收支明细 <i class="icon-chevron-thin-right"></i></a>
+		</li>
+		<li>
+			充值详情
+		</li>
+	</ol>
+
+	<div class="tables-title heading-FontColor fn-mb-10">
+		充值详情
+		<div class="table-title-btns">
+			<a href="javascript:history.go(-1)">返回 <i class="icon-chevron-thin-right"></i></a>
+		</div>
+	</div>
+
+	<div ng-if="data.status == '成功'" class="alert alert-success fn-mb-10">
+	    <i></i>
+	    <p>充值成功 </p>
+	</div>
+
+	<div ng-if="data.status == '失败'" class="alert alert-danger fn-mb-10">
+	    <i></i>
+	    <p>充值失败 <span class="fn-ml-10 default-FontColor">充值金额已返回您的银行账户。</span></p>
+	</div>
+	<div ng-if="data.status == '处理中'" class="alert alert-warning fn-mb-10">
+	    <i></i>
+	    <em></em>
+	    <div class="alert-body">
+	        充值处理中
+	    </div>
+	</div>
+
+	<div class="section fn-pt-10 fn-mb-20">
+		<span class="heading-FontColor">充值账户：</span> <em class="font-normal">{{ data.account }}</em>
+	</div>
+
+	<table class="table table-border inverse">
+		<colgroup>
+			<col/>
+			<col/>
+			<col/>
+			<col/>
+			<col/>
+		</colgroup>
+		<thead>
+			<tr>
+				<th>业务类型</th>
+				<th>创建时间</th>
+				<th>流水号</th>
+				<th>金额（元）</th>
+				<th>资金来源</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>{{ data.type }}</td>
+				<td>{{ data.time }}</td>
+				<td>
+					<p class="text-nowrap">{{ data.no }}</p>
+				</td>
+				<td>{{ data.money }}</td>
+				<td>{{ data.payway }}</td>
+			</tr>
+		</tbody>
+	</table>
+
