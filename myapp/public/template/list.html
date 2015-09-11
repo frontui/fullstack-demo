@@ -68,7 +68,7 @@
 						共&nbsp;{{ data.income }}&nbsp;笔
 					</h5>
 					<h2>
-						{{ data.balance }}
+						{{ data.balance | currency:"" }}
 					</h2>
 				</li>
 				<li>
@@ -77,7 +77,7 @@
 						共&nbsp;{{ data.expend }}&nbsp;笔
 					</h5>
 					<h2>
-						{{ data.drawable }}
+						{{ data.drawable | currency:"" }}
 					</h2>
 				</li>
 			</ul>
